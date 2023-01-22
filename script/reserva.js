@@ -26,11 +26,10 @@ const showItens = (e) => {
 
 buttonServices.addEventListener("click", showItens);
 
-// function carrinhoReserva(dataChichin, dataCheckout, qtdAdulto, qdtCrianca) {
-
-// }
+// +++++++++++++++++++++++++++JOse Edmar++++++++++++++++++++++++++++++
 
 const carrinhoReserva = {
+    acomodacao: "",
     dataCheckin: "",
     dataCheckout: "",
     qtdAdulto: 0,
@@ -39,6 +38,14 @@ const carrinhoReserva = {
     total: 0,
     adcionais: [],
 };
+
+// LocalStorage
+
+
+localStorage
+
+
+
 const selecionar = (seletor) => document.querySelector(seletor);
 
 // const teste = selecionar('[data-checkin]').addEventListener('onfocusout', imprimi)
@@ -47,46 +54,73 @@ const selecionar = (seletor) => document.querySelector(seletor);
 // console.log(selecionar("[data-checkin]").value);
 // console.log(carrinhoReserva);
 
-let data_set = ['data-checkout', 'data-checkin', 'data-qdtA', 'data-qdtC']
+let data_set = ["data-checkout", "data-checkin", "data-qdtA", "data-qdtC"];
 
-function recuperaData(){
+function recuperaData() {
     // console.log(selecionar("[data-checkin]"));
     // console.log(selecionar("[data-checkin]").value);
-    let dataCheckin, dataCheckout, dataQdtA, dataQdtC
-    dataCheckin = selecionar("[data-checkin]").value
-    dataCheckout = selecionar("[data-checkout]").value
+    let dataCheckin, dataCheckout, dataQdtA, dataQdtC;
+    dataCheckin = selecionar("[data-checkin]").value;
+    dataCheckout = selecionar("[data-checkout]").value;
     // dataQdtA = selecionar(`[${data_set[3]}]`).value
-    dataQdtA = selecionar('[data-qdtA]').value
+    dataQdtA = selecionar("[data-qdtA]").value;
     // console.log(typeof((parseInt(dataQdtA))))
     // console.log(parseInt(dataQdtA) > 0)
-    dataQdtC = selecionar(`[${data_set[3]}]`).value
-    console.log(dataQdtC)
-    if( dataCheckin !== ''){
-        carrinhoReserva.dataCheckin = dataCheckin
+    dataQdtC = selecionar(`[${data_set[3]}]`).value;
+    console.log(dataQdtC);
+    if (dataCheckin !== "") {
+        carrinhoReserva.dataCheckin = dataCheckin;
     }
-    if(dataCheckout !== ''){
-        carrinhoReserva.dataCheckout = dataCheckout
+    if (dataCheckout !== "") {
+        carrinhoReserva.dataCheckout = dataCheckout;
     }
-    if(parseInt(dataQdtA) > 0){
-        carrinhoReserva.qtdAdulto = parseInt(dataQdtA)
+    if (parseInt(dataQdtA) > 0) {
+        carrinhoReserva.qtdAdulto = parseInt(dataQdtA);
     }
-    if(parseInt(dataQdtC) > 0){
-        carrinhoReserva.qtdCrianca = parseInt(dataQdtC)
+    if (parseInt(dataQdtC) > 0) {
+        carrinhoReserva.qtdCrianca = parseInt(dataQdtC);
     }
-    
-    mostrar()
-}
-data_set.forEach( (item) =>{
-    let cli = selecionar(`[${item}]`)
-    cli.addEventListener('focusout', recuperaData)
-})
 
-function salvarCarrinho(){
-    
+    // mostrar();
+
+    let reserva = JSON.stringify(carrinhoReserva)
+    console.log(reserva);
 }
-function mostrar(){
-    console.log(carrinhoReserva)
+data_set.forEach((item) => {
+    let cli = selecionar(`[${item}]`);
+    cli.addEventListener("focusout", recuperaData);
+});
+
+function salvarCarrinho() {}
+function mostrar() {
+    console.log(carrinhoReserva);
 }
 
-let acomodacao = document.querySelectorAll('.container-titulos-acomodacao')
-console.log('Objeto: ',acomodacao)
+
+document.querySelectorAll(".container-titulos-acomodacao").forEach((e, i) => {
+    e.onchange = function () {
+        acomodacao();
+    };
+});
+
+function acomodacao() {
+    let standard, master, deluxe;
+    standard = document.querySelector("#standard");
+    master = document.querySelector("#master");
+    deluxe = document.querySelector("#deluxe");
+    if (standard.checked) {
+        console.log("standard ativo");
+        carrinhoReserva.acomodacao = 'standard'
+        mostrar()
+    }
+    if (master.checked) {
+        console.log("master ativo");
+        carrinhoReserva.acomodacao = 'Master'
+        mostrar()
+    }
+    if (deluxe.checked) {
+        console.log("deluxe ativo");
+        carrinhoReserva.acomodacao = 'Deluxe'
+        mostrar()
+    }
+}
