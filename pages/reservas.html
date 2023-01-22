@@ -274,10 +274,10 @@
                             <h2>Resumo da reserva</h2>
                             <div class="container-listas">
                                 <ul>
-                                    <li>Acomodação:</li>
-                                    <li>Checkin:</li>
-                                    <li>Checkout:</li>
-                                    <li>Pessoas:</li>
+                                    <li>Acomodação: <span></span> </li>
+                                    <li>Checkin: <span></span> </li>
+                                    <li>Checkout: <span></span> </li>
+                                    <li>Pessoas: <span></span> </li>
                                 </ul>
 
                                 <div class="add-servicos">
@@ -287,13 +287,20 @@
                                         </a>
                                     </span>
                                     <div class="add-servicos-content">
-                                        serviços aqui
+                                        <ul>
+                                            <li><input type="checkbox" name="cofre" id="cofre"> Cofre <span>R$ 50,00</span> </li>
+                                            <li><input type="checkbox" name="lavanderia" id="lavanderia"> Lavanderia <span>R$ 100,00</span> </li>
+                                            <li><input type="checkbox" name="cafe" id="cafe"> Café no quarto <span>R$ 50,00</span> </li>
+                                            <li><input type="checkbox" name="massagem" id="massagem"> Massagem <span>R$ 150,00</span> </li>
+                                            <li><input type="checkbox" name="salaPalestra" id="salaPalestra"> Sala para palestra <span>R$ 350,00</span> </li>
+                                            <li><input type="checkbox" name="passeioTuristico" id="passeioTuristico"> Passei Turistico <span>R$ 250,00</span> </li>
+                                        </ul>
                                     </div>
                                 </div>
 
                                 <ul>
                                     <li>Subtotal:</li>
-                                    <li>Total:</li>
+                                    <li>Total: <span id="total"></span> </li>
                                 </ul>
                             </div>
 
