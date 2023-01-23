@@ -27,14 +27,6 @@ const showItens = (e) => {
 buttonServices.addEventListener("click", showItens);
 
 // +++++++++++++++++++++++++++JOse Edmar++++++++++++++++++++++++++++++
-const servico = {
-    cofre: 0,
-    lavanderia: 0,
-    cafe: 0,
-    massagem: 0,
-    salaPalestra: 0,
-    passeioTuristico: 0,
-};
 
 const carrinhoReserva = {
     acomodacao: "",
@@ -42,36 +34,28 @@ const carrinhoReserva = {
     dataCheckout: "",
     qtdAdulto: 0,
     qtdCrianca: 0,
+    cofre: 0,
+    lavanderia: 0,
+    cafe: 0,
+    massagem: 0,
+    salaPalestra: 0,
+    passeioTuristico: 0,
     subtotal: 0,
     total: 0,
 };
 
-// LocalStorage
-
-// localStorage
-
+//função para selecionar campos no HTML com JS
 const selecionar = (seletor) => document.querySelector(seletor);
-
-// const teste = selecionar('[data-checkin]').addEventListener('onfocusout', imprimi)
-
-// carrinhoReserva.dataCheckin = selecionar("[data-checkin]").value
-// console.log(selecionar("[data-checkin]").value);
-// console.log(carrinhoReserva);
 
 let data_set = ["data-checkout", "data-checkin", "data-qdtA", "data-qdtC"];
 
+//Pegar informações de reservas
 function recuperaData() {
-    // console.log(selecionar("[data-checkin]"));
-    // console.log(selecionar("[data-checkin]").value);
     let dataCheckin, dataCheckout, dataQdtA, dataQdtC;
     dataCheckin = selecionar("[data-checkin]").value;
     dataCheckout = selecionar("[data-checkout]").value;
-    // dataQdtA = selecionar(`[${data_set[3]}]`).value
     dataQdtA = selecionar("[data-qdtA]").value;
-    // console.log(typeof((parseInt(dataQdtA))))
-    // console.log(parseInt(dataQdtA) > 0)
     dataQdtC = selecionar(`[${data_set[3]}]`).value;
-    // console.log(dataQdtC);
     if (dataCheckin !== "") {
         carrinhoReserva.dataCheckin = dataCheckin;
         populaReserva();
@@ -88,20 +72,17 @@ function recuperaData() {
         carrinhoReserva.qtdCrianca = parseInt(dataQdtC);
         populaReserva();
     }
-
-    // mostrar();
-
-    let reserva = JSON.stringify(carrinhoReserva);
-    // console.log(reserva);
 }
+
+//Adicionar evento ao selecionar campos minha reserva
 data_set.forEach((item) => {
     let cli = selecionar(`[${item}]`);
     cli.addEventListener("change", recuperaData);
     // cli.addEventListener("focusout", recuperaData);
 });
 
-
-document.querySelectorAll(".container-titulos-acomodacao").forEach((e, i) => {
+//Criar evento para tipos acomodações
+document.querySelectorAll(".container-titulos-acomodacao").forEach((e) => {
     e.onchange = function () {
         acomodacao();
     };
@@ -111,126 +92,119 @@ document.querySelectorAll(".container-titulos-acomodacao").forEach((e, i) => {
 document.querySelectorAll(".add-servicos-content ul li input").forEach((e) => {
     e.onclick = function () {
         populaServico();
-        document.querySelector("#total").innerText = `R$ ${totalAdicionais().toFixed(2)}`;
+        carrinhoReserva.total = totalAdicionais().toFixed(2)
+        selecionar("#total").innerText = `R$ ${totalAdicionais().toFixed(2)}`;
     };
 });
 
+// Preenher Objeto carrinhoReserva com dados dos serviços adicionais
 function populaServico() {
-    if (document.querySelector("#cofre").checked) {
-        servico.cofre = 50;
+    if ( selecionar("#cofre").checked) {
+        carrinhoReserva.cofre = 50;
     } else {
-        servico.cofre = 0;
+        carrinhoReserva.cofre = 0;
     }
-    if (document.querySelector("#lavanderia").checked) {
-        servico.lavanderia = 100;
+    if (selecionar("#lavanderia").checked) {
+        carrinhoReserva.lavanderia = 100;
     } else {
-        servico.lavanderia = 0;
+        carrinhoReserva.lavanderia = 0;
     }
-    if (document.querySelector("#cafe").checked) {
-        servico.cafe = 50;
+    if (selecionar("#cafe").checked) {
+        carrinhoReserva.cafe = 50;
     } else {
-        servico.cafe = 0;
+        carrinhoReserva.cafe = 0;
     }
-    if (document.querySelector("#massagem").checked) {
-        servico.massagem = 150;
+    if (selecionar("#massagem").checked) {
+        carrinhoReserva.massagem = 150;
     } else {
-        servico.massagem = 0;
+        carrinhoReserva.massagem = 0;
     }
-    if (document.querySelector("#salaPalestra").checked) {
-        servico.salaPalestra = 350;
+    if (selecionar("#salaPalestra").checked) {
+        carrinhoReserva.salaPalestra = 350;
     } else {
-        servico.salaPalestra = 0;
+        carrinhoReserva.salaPalestra = 0;
     }
-    if (document.querySelector("#passeioTuristico").checked) {
-        servico.passeioTuristico = 250;
+    if (selecionar("#passeioTuristico").checked) {
+        carrinhoReserva.passeioTuristico = 250;
     } else {
-        servico.passeioTuristico = 0;
+        carrinhoReserva.passeioTuristico = 0;
     }
 }
 
 // Calcular valor Total Acomonações
 function totalAdicionais() {
     let tipoAcomocao = carrinhoReserva.acomodacao;
-    // console.log(`tipo dentro do tortal: ${tipoAcomocao}`);
     if (tipoAcomocao == "master") {
         return (
-            servico.cafe +
-            servico.cofre +
-            servico.lavanderia +
-            servico.massagem +
-            servico.passeioTuristico +
-            servico.salaPalestra +
+            carrinhoReserva.cafe +
+            carrinhoReserva.cofre +
+            carrinhoReserva.lavanderia +
+            carrinhoReserva.massagem +
+            carrinhoReserva.passeioTuristico +
+            carrinhoReserva.salaPalestra +
             (carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca) * 290
         );
     } else if (tipoAcomocao == "deluxe") {
         return (
-            servico.cafe +
-            servico.cofre +
-            servico.lavanderia +
-            servico.massagem +
-            servico.passeioTuristico +
-            servico.salaPalestra +
+            carrinhoReserva.cafe +
+            carrinhoReserva.cofre +
+            carrinhoReserva.lavanderia +
+            carrinhoReserva.massagem +
+            carrinhoReserva.passeioTuristico +
+            carrinhoReserva.salaPalestra +
             (carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca) * 390
         );
-    }
-    else {
+    } else {
+        carrinhoReserva.acomodacao = 'standard'
         return (
-            servico.cafe +
-            servico.cofre +
-            servico.lavanderia +
-            servico.massagem +
-            servico.passeioTuristico +
-            servico.salaPalestra +
+            carrinhoReserva.cafe +
+            carrinhoReserva.cofre +
+            carrinhoReserva.lavanderia +
+            carrinhoReserva.massagem +
+            carrinhoReserva.passeioTuristico +
+            carrinhoReserva.salaPalestra +
             (carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca) * 190
         );
     }
 }
 
-// document.querySelectorAll('.add-servicos-content ul li:nth-of-type(1) input[name]')
+// preencher html de resumo da reserva com informações da reserva
 function populaReserva() {
-    document.querySelector(
-        ".container-listas li:nth-of-type(1) span"
-    ).innerText = carrinhoReserva.acomodacao;
-    document.querySelector(
-        ".container-listas li:nth-of-type(2) span"
-    ).innerText = carrinhoReserva.dataCheckin;
-    document.querySelector(
-        ".container-listas li:nth-of-type(3) span"
-    ).innerText = carrinhoReserva.dataCheckout;
-    document.querySelector(
-        ".container-listas li:nth-of-type(4) span"
-    ).innerText = carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca;
-    document.querySelector("#total").innerText = `R$ ${totalAdicionais().toFixed(2)}`;
+    selecionar(".container-listas li:nth-of-type(1) span").innerText =
+        carrinhoReserva.acomodacao;
+    selecionar(".container-listas li:nth-of-type(2) span").innerText =
+        carrinhoReserva.dataCheckin;
+    selecionar(".container-listas li:nth-of-type(3) span").innerText =
+        carrinhoReserva.dataCheckout;
+    selecionar(".container-listas li:nth-of-type(4) span").innerText =
+        carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca;
+    selecionar("#total").innerText = `R$ ${totalAdicionais().toFixed(2)}`;
+    carrinhoReserva.total = totalAdicionais().toFixed(2)
 }
 
+// Função para preencher objeto  com tipo de acomodação
 function acomodacao() {
-    let standard, master, deluxe;
-    standard = document.querySelector("#standard");
-    master = document.querySelector("#master");
-    deluxe = document.querySelector("#deluxe");
-    if (standard.checked) {
-        // console.log("standard ativo");
+    if (selecionar("#standard").checked) {
         carrinhoReserva.acomodacao = "standard";
-        // mostrar();
         populaReserva();
     }
-    if (master.checked) {
-        // console.log("master ativo");
+    if (selecionar("#master").checked) {
         carrinhoReserva.acomodacao = "master";
-        // mostrar();
         populaReserva();
     }
-    if (deluxe.checked) {
-        // console.log("deluxe ativo");
+    if (selecionar("#deluxe").checked) {
         carrinhoReserva.acomodacao = "deluxe";
-        // mostrar();
         populaReserva();
     }
 }
+
+
+let reserva = JSON.stringify(carrinhoReserva);
+// console.log(reserva);
 
 // document.querySelector('.container-listas li:nth-of-type(4) span').innerText = '4'
 // Adicionar local
-let servicoString = JSON.stringify(servico)
-console.log(typeof(servicoString));
-console.log(typeof(servico));
-localStorage.setItem('reserva', JSON.stringify(servico))
+// let servicoString = JSON.stringify(servico);
+// console.log(typeof servicoString);
+// console.log(typeof servico);
+// localStorage.setItem("reserva", JSON.stringify(servico));
