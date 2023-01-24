@@ -7,7 +7,10 @@ const modal = document.querySelector(".modal-wrapper");
 // modal.style.display = "flex";
 buttonModal.addEventListener("click", () => {
     modal.style.display = "flex";
+    htmlModal();
+    addLocalStorage();
 });
+// btn_Modal.addEventListener("click", showItens);
 
 modal.addEventListener("click", (e) => {
     // console.log(e.target);
@@ -44,12 +47,6 @@ const carrinhoReserva = {
         salaPalestra: 0,
         passeioTuristico: 0,
     },
-    // cofre: 0,
-    // lavanderia: 0,
-    // cafe: 0,
-    // massagem: 0,
-    // salaPalestra: 0,
-    // passeioTuristico: 0,
     subtotal: 0,
     total: 0,
 };
@@ -218,31 +215,50 @@ let reserva = JSON.stringify(carrinhoReserva);
 // console.log(typeof servico);
 // localStorage.setItem("reserva", JSON.stringify(servico));
 
-function criarHTML() {
+function htmlModal() {
     let div = document.querySelector(".ulmodal");
     var ul = document.createElement("ul");
     div.appendChild(ul);
+    var li = document.createElement("li");
+    var li1 = document.createElement("li");
+    var li2 = document.createElement("li");
+    var li3 = document.createElement("li");
+    var li4 = document.createElement("li");
+    var span = document.createElement("span");
+    var span1 = document.createElement("span");
+    var span2 = document.createElement("span");
+    var span3 = document.createElement("span");
+    var span4 = document.createElement("span");
+    span.innerText = `Tipo acomodação: ${carrinhoReserva.acomodacao}`;
+    span1.innerText = `Chechin: ${carrinhoReserva.dataCheckin}`;
+    span2.innerText = `Chechin: ${carrinhoReserva.dataCheckout}`;
+    span3.innerText = `Pesoas: ${
+        carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca
+    }`;
+    span4.innerText = `Total: ${carrinhoReserva.total}`;
     ul.appendChild(li);
-    // carrinhoReserva.servicos.forEach((e, i) => {
-    //     // var li = document.createElement('li')
-    //     console.log(e, i);
-
-    // })
-    // for(let key of carrinhoReserva){
-    //     console.log(key);
-    // }
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+    li.appendChild(span);
+    li1.appendChild(span1);
+    li2.appendChild(span2);
+    li3.appendChild(span3);
+    Object.keys(carrinhoReserva.servicos).forEach((item) => {
+        if (carrinhoReserva.servicos[item] !== 0) {
+            var li = document.createElement("li");
+            ul.appendChild(li);
+            let span = document.createElement("span");
+            span.innerText = `${item} - valor: R$ ${carrinhoReserva.servicos[item]}`;
+            li.appendChild(span);
+        }
+    });
+    ul.appendChild(li4);
+    li4.appendChild(span4);
 }
 
-// function adcElemento () {
-//     // cria um novo elemento div
-//     // e dá à ele conteúdo
-//     var divNova = document.createElement("div");
-//     var conteudoNovo = document.createTextNode("Olá, cumprimentos!");
-//     divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
+function addLocalStorage() {
+    let carrinho = JSON.stringify(carrinhoReserva);
 
-//     // adiciona o novo elemento criado e seu conteúdo ao DOM
-//     var divAtual = document.getElementById("div1");
-//     document.body.insertBefore(divNova, divAtual);
-//   }
-
-criarHTML();
+    localStorage.setItem("carrinhoReserva", carrinho);
+}
