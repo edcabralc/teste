@@ -146,58 +146,67 @@
             <section class="section">
                 <div class="container">
                     <section class="secao-tipo-acomodacao">
-                        <div class="container-tipo-acomodacao">
-                            <h2>Escolha o tipo de acomodação</h2>
-                            <div class="container-titulos-acomodacao">
-                                <input
-                                    class="item-check"
-                                    type="radio"
-                                    name="acomodacao"
-                                    id="standard"
-                                    checked
-                                />
-                                <label for="standard">
-                                    <div class="item-label">
-                                        <div>
-                                            <div class="flex">
-                                                <span class="circle">
-                                                    <span
-                                                        class="checkmark"
-                                                    ></span>
-                                                </span>
-                                                <h3>Standard</h3>
+                        <form
+                            action=""
+                            data-reserva="form-reserva"
+                            method="get"
+                        >
+                            <div class="container-tipo-acomodacao">
+                                <h2>Escolha o tipo de acomodação</h2>
+                                <div class="container-titulos-acomodacao">
+                                    <input
+                                        class="item-check"
+                                        type="radio"
+                                        name="acomodacao"
+                                        value="Standard"
+                                        id="standard"
+                                        checked
+                                    />
+                                    <label for="standard">
+                                        <div class="item-label">
+                                            <div>
+                                                <div class="flex">
+                                                    <span class="circle">
+                                                        <span
+                                                            class="checkmark"
+                                                        ></span>
+                                                    </span>
+                                                    <h3>Standard</h3>
+                                                </div>
+                                                <p>
+                                                    A acomodação standard é um
+                                                    quarto confortável e
+                                                    funcional, ideal para
+                                                    aqueles que procuram um
+                                                    lugar para descansar durante
+                                                    a viagem. O quarto possui
+                                                    uma cama queen size ou duas
+                                                    camas de solteiro, mesa de
+                                                    trabalho, TV a cabo,
+                                                    ar-condicionado e banheiro
+                                                    privativo.
+                                                </p>
+                                                <p class="preco">R$190,00</p>
                                             </div>
-                                            <p>
-                                                A acomodação standard é um
-                                                quarto confortável e funcional,
-                                                ideal para aqueles que procuram
-                                                um lugar para descansar durante
-                                                a viagem. O quarto possui uma
-                                                cama queen size ou duas camas de
-                                                solteiro, mesa de trabalho, TV a
-                                                cabo, ar-condicionado e banheiro
-                                                privativo.
-                                            </p>
-                                            <p class="preco">R$190,00</p>
+                                            <img
+                                                src="../public/assets/images/acomodacoes/standard/standard1.png"
+                                                alt=""
+                                            />
                                         </div>
-                                        <img
-                                            src="../public/assets/images/acomodacoes/standard/standard1.png"
-                                            alt=""
-                                        />
-                                    </div>
-                                </label>
-                            </div>
+                                    </label>
+                                </div>
 
-                            <div class="container-titulos-acomodacao">
-                                <input
-                                    class="item-check"
-                                    type="radio"
-                                    name="acomodacao"
-                                    id="master"
-                                />
-                                <label for="master">
-                                    <div class="item-label">
-                                        <div>
+                                <div class="container-titulos-acomodacao">
+                                    <input
+                                        class="item-check"
+                                        type="radio"
+                                        name="acomodacao"
+                                        value="Master"
+                                        id="master"
+                                    />
+                                    <label for="master">
+                                        <div class="item-label">
+                                            <!-- <div>
                                             <div class="flex">
                                                 <span class="circle">
                                                     <span
@@ -222,21 +231,22 @@
                                         <img
                                             src="../public/assets/images/acomodacoes/master/master.jpg"
                                             alt=""
-                                        />
-                                    </div>
-                                </label>
-                            </div>
+                                        /> -->
+                                        </div>
+                                    </label>
+                                </div>
 
-                            <div class="container-titulos-acomodacao">
-                                <input
-                                    class="item-check"
-                                    type="radio"
-                                    name="acomodacao"
-                                    id="deluxe"
-                                />
-                                <label for="deluxe">
-                                    <div class="item-label">
-                                        <div>
+                                <div class="container-titulos-acomodacao">
+                                    <input
+                                        class="item-check"
+                                        type="radio"
+                                        name="acomodacao"
+                                        value="Deluxe"
+                                        id="deluxe"
+                                    />
+                                    <label for="deluxe">
+                                        <div class="item-label">
+                                            <!-- <div>
                                             <div class="flex">
                                                 <span class="circle">
                                                     <span
@@ -264,20 +274,20 @@
                                         <img
                                             src="../public/assets/images/acomodacoes/deluxe/luxo1.jpg"
                                             alt=""
-                                        />
-                                    </div>
-                                </label>
+                                        /> -->
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-
+                        </form>
                         <div class="container-resumo-reserva">
                             <h2>Resumo da reserva</h2>
                             <div class="container-listas">
                                 <ul>
-                                    <li>Acomodação: <span></span> </li>
-                                    <li>Checkin: <span></span> </li>
-                                    <li>Checkout: <span></span> </li>
-                                    <li>Pessoas: <span></span> </li>
+                                    <li>Acomodação: <span></span></li>
+                                    <li>Checkin: <span></span></li>
+                                    <li>Checkout: <span></span></li>
+                                    <li>Pessoas: <span></span></li>
                                 </ul>
 
                                 <div class="add-servicos">
@@ -288,19 +298,65 @@
                                     </span>
                                     <div class="add-servicos-content">
                                         <ul>
-                                            <li><input type="checkbox" name="cofre" id="cofre"> Cofre <span>R$ 50,00</span> </li>
-                                            <li><input type="checkbox" name="lavanderia" id="lavanderia"> Lavanderia <span>R$ 100,00</span> </li>
-                                            <li><input type="checkbox" name="cafe" id="cafe"> Café no quarto <span>R$ 50,00</span> </li>
-                                            <li><input type="checkbox" name="massagem" id="massagem"> Massagem <span>R$ 150,00</span> </li>
-                                            <li><input type="checkbox" name="salaPalestra" id="salaPalestra"> Sala para palestra <span>R$ 350,00</span> </li>
-                                            <li><input type="checkbox" name="passeioTuristico" id="passeioTuristico"> Passei Turistico <span>R$ 250,00</span> </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="cofre"
+                                                    id="cofre"
+                                                />
+                                                Cofre <span>R$ 50,00</span>
+                                            </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="lavanderia"
+                                                    id="lavanderia"
+                                                />
+                                                Lavanderia
+                                                <span>R$ 100,00</span>
+                                            </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="cafe"
+                                                    id="cafe"
+                                                />
+                                                Café no quarto
+                                                <span>R$ 50,00</span>
+                                            </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="massagem"
+                                                    id="massagem"
+                                                />
+                                                Massagem <span>R$ 150,00</span>
+                                            </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="salaPalestra"
+                                                    id="salaPalestra"
+                                                />
+                                                Sala para palestra
+                                                <span>R$ 350,00</span>
+                                            </li>
+                                            <li>
+                                                <input
+                                                    type="checkbox"
+                                                    name="passeioTuristico"
+                                                    id="passeioTuristico"
+                                                />
+                                                Passei Turistico
+                                                <span>R$ 250,00</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <ul>
                                     <li>Subtotal:</li>
-                                    <li>Total: <span id="total"></span> </li>
+                                    <li>Total: <span id="total"></span></li>
                                 </ul>
                             </div>
 
@@ -315,6 +371,7 @@
                     <div class="modal-content">
                         <h3>Resumo da reserva</h3>
                         <div>
+                            <h3 class="test"></h3>
                             <img
                                 src="https://picsum.photos/id/598/600/400"
                                 alt=""
