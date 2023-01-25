@@ -7,7 +7,7 @@ const modal = document.querySelector(".modal-wrapper");
 // modal.style.display = "flex";
 buttonModal.addEventListener("click", () => {
     modal.style.display = "flex";
-    htmlModal();
+    htmlModal(carrinhoReserva);
     addLocalStorage();
 });
 // btn_Modal.addEventListener("click", showItens);
@@ -266,4 +266,14 @@ function addLocalStorage() {
     let carrinho = JSON.stringify(carrinhoReserva);
 
     localStorage.setItem("carrinhoReserva", carrinho);
+}
+
+function recuperaLocalStorage(){
+    let carrinho =localStorage.getItem('carrinhoReserva')
+    if(carrinho){
+        let dadoReserva = JSON.parse(carrinho)
+        console.log(dadoReserva);
+    }
+    // carrinho  ? console.log(carrinho) : console.log('vazio');
+    // console.log(carrinho);
 }
