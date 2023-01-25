@@ -193,14 +193,20 @@ function populaReserva() {
 function acomodacao() {
     if (selecionar("#standard").checked) {
         carrinhoReserva.acomodacao = "standard";
+        document.querySelector(".modal-reserva img").src =
+            "../public/assets/images/acomodacoes/standard/standard1.png";
         populaReserva();
     }
     if (selecionar("#master").checked) {
         carrinhoReserva.acomodacao = "master";
+        document.querySelector(".modal-reserva img").src =
+            "../public/assets/images/acomodacoes/master/master.jpg";
         populaReserva();
     }
     if (selecionar("#deluxe").checked) {
         carrinhoReserva.acomodacao = "deluxe";
+        document.querySelector(".modal-reserva img").src =
+            "../public/assets/images/acomodacoes/deluxe/luxo1.jpg";
         populaReserva();
     }
 }
