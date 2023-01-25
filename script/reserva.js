@@ -216,7 +216,12 @@ let reserva = JSON.stringify(carrinhoReserva);
 // localStorage.setItem("reserva", JSON.stringify(servico));
 
 function htmlModal() {
-    let div = document.querySelector(".ulmodal");
+    let uL = document.querySelector(".modal-carrinho ul");
+    document.querySelectorAll(".modal-carrinho ul").length > 0
+        ? document.querySelector(".modal-carrinho").removeChild(uL)
+        : "";
+
+    let div = document.querySelector(".modal-carrinho");
     var ul = document.createElement("ul");
     div.appendChild(ul);
     var li = document.createElement("li");
