@@ -7,8 +7,14 @@ const modal = document.querySelector(".modal-wrapper");
 // modal.style.display = "flex";
 buttonModal.addEventListener("click", () => {
     modal.style.display = "flex";
-    htmlModal(carrinhoReserva);
-    addLocalStorage();
+
+    if(localStorage.getItem("carrinhoReserva")){
+        let carrinho = JSON.parse(localStorage.getItem("carrinhoReserva"));
+        htmlModalStorage(carrinho)
+    }else{
+        htmlModal(carrinhoReserva);
+        addLocalStorage();
+    }
 });
 // btn_Modal.addEventListener("click", showItens);
 
@@ -211,17 +217,8 @@ function acomodacao() {
     }
 }
 
-let reserva = JSON.stringify(carrinhoReserva);
-// console.log(reserva);
 
-// document.querySelector('.container-listas li:nth-of-type(4) span').innerText = '4'
-// Adicionar local
-// let servicoString = JSON.stringify(servico);
-// console.log(typeof servicoString);
-// console.log(typeof servico);
-// localStorage.setItem("reserva", JSON.stringify(servico));
-
-function htmlModal() {
+function htmlModal(obj) {
     let uL = document.querySelector(".modal-carrinho ul");
     document.querySelectorAll(".modal-carrinho ul").length > 0
         ? document.querySelector(".modal-carrinho").removeChild(uL)
@@ -240,13 +237,13 @@ function htmlModal() {
     var span2 = document.createElement("span");
     var span3 = document.createElement("span");
     var span4 = document.createElement("span");
-    span.innerText = `Tipo acomodação: ${carrinhoReserva.acomodacao}`;
-    span1.innerText = `Chechin: ${carrinhoReserva.dataCheckin}`;
-    span2.innerText = `Chechin: ${carrinhoReserva.dataCheckout}`;
+    span.innerText = `Tipo acomodação: ${obj.acomodacao}`;
+    span1.innerText = `Chechin: ${obj.dataCheckin}`;
+    span2.innerText = `Chechin: ${obj.dataCheckout}`;
     span3.innerText = `Pesoas: ${
-        carrinhoReserva.qtdAdulto + carrinhoReserva.qtdCrianca
+        obj.qtdAdulto + obj.qtdCrianca
     }`;
-    span4.innerText = `Total: ${carrinhoReserva.total}`;
+    span4.innerText = `Total: ${obj.total}`;
     ul.appendChild(li);
     ul.appendChild(li1);
     ul.appendChild(li2);
@@ -255,12 +252,12 @@ function htmlModal() {
     li1.appendChild(span1);
     li2.appendChild(span2);
     li3.appendChild(span3);
-    Object.keys(carrinhoReserva.servicos).forEach((item) => {
-        if (carrinhoReserva.servicos[item] !== 0) {
+    Object.keys(obj.servicos).forEach((item) => {
+        if (obj.servicos[item] !== 0) {
             var li = document.createElement("li");
             ul.appendChild(li);
             let span = document.createElement("span");
-            span.innerText = `${item} - valor: R$ ${carrinhoReserva.servicos[item]}`;
+            span.innerText = `${item} - valor: R$ ${obj.servicos[item]}`;
             li.appendChild(span);
         }
     });
@@ -274,12 +271,73 @@ function addLocalStorage() {
     localStorage.setItem("carrinhoReserva", carrinho);
 }
 
-function recuperaLocalStorage(){
-    let carrinho =localStorage.getItem('carrinhoReserva')
-    if(carrinho){
-        let dadoReserva = JSON.parse(carrinho)
-        console.log(dadoReserva);
+function recuperaLocalStorage() {
+    let carrinho = localStorage.getItem("carrinhoReserva");
+    if (carrinho) {
+        let dadoReserva = JSON.parse(carrinho);
+        console.log(dadoReserva.total);
+        selecionar(".container-listas li:nth-of-type(1) span").innerText =
+            dadoReserva.acomodacao;
+        selecionar(".container-listas li:nth-of-type(2) span").innerText =
+            dadoReserva.dataCheckin;
+        selecionar(".container-listas li:nth-of-type(3) span").innerText =
+            dadoReserva.dataCheckout;
+        selecionar(".container-listas li:nth-of-type(4) span").innerText =
+            dadoReserva.qtdAdulto + dadoReserva.qtdCrianca;
+        selecionar("#total").innerText = `R$ ${dadoReserva.total}`;
+        // dadoReserva.total = totalAdicionais().toFixed(2);
+
+        Object.keys(dadoReserva.servicos).forEach((item) =>{
+            dadoReserva.servicos[item] != 0 ? selecionar(`#${item}`).checked = true : ''
+        })
+
     }
-    // carrinho  ? console.log(carrinho) : console.log('vazio');
-    // console.log(carrinho);
+}
+
+
+function htmlModalStorage(obj) {
+    let uL = document.querySelector(".modal-carrinho ul");
+    document.querySelectorAll(".modal-carrinho ul").length > 0
+        ? document.querySelector(".modal-carrinho").removeChild(uL)
+        : null;
+
+    let div = document.querySelector(".modal-carrinho");
+    var ul = document.createElement("ul");
+    div.appendChild(ul);
+    var li = document.createElement("li");
+    var li1 = document.createElement("li");
+    var li2 = document.createElement("li");
+    var li3 = document.createElement("li");
+    var li4 = document.createElement("li");
+    var span = document.createElement("span");
+    var span1 = document.createElement("span");
+    var span2 = document.createElement("span");
+    var span3 = document.createElement("span");
+    var span4 = document.createElement("span");
+    span.innerText = `Tipo acomodação: ${obj.acomodacao}`;
+    span1.innerText = `Chechin: ${obj.dataCheckin}`;
+    span2.innerText = `Chechin: ${obj.dataCheckout}`;
+    span3.innerText = `Pesoas: ${
+        obj.qtdAdulto + obj.qtdCrianca
+    }`;
+    span4.innerText = `Total: ${obj.total}`;
+    ul.appendChild(li);
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+    li.appendChild(span);
+    li1.appendChild(span1);
+    li2.appendChild(span2);
+    li3.appendChild(span3);
+    Object.keys(obj.servicos).forEach((item) => {
+        if (obj.servicos[item] !== 0) {
+            var li = document.createElement("li");
+            ul.appendChild(li);
+            let span = document.createElement("span");
+            span.innerText = `${item} - valor: R$ ${obj.servicos[item]}`;
+            li.appendChild(span);
+        }
+    });
+    ul.appendChild(li4);
+    li4.appendChild(span4);
 }
