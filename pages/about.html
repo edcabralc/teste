@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/assets/css/styles.css" />
+    <!-- <link rel="stylesheet" href="../public/assets/css/refact/styles.css" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chloe Grand Hotel - Nosso Hotel</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="/index.html">
+            <img
+              src="../public/assets/images/logo.svg"
+              alt="Chloe Gran Hotel"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul class="menu">
+            <li>
+              <a href="../pages/about.html">O Hotel</a>
+            </li>
+            <li>
+              <a href="../pages/acomodacoes.html">Acomodações</a>
+            </li>
+            <li>
+              <a href="../pages/reservas.html">Reservas</a>
+            </li>
+            <li>
+              <a href="../pages/contato.html">Contato</a>
+            </li>
+            <li>
+              <form action="../pages/register.html" method="get">
+                <input
+                  class="menu-btn_signin"
+                  type="submit"
+                  value="Cadastrar"
+                />
+              </form>
+            </li>
+            <li>
+              <form action="../pages/login.html" method="get">
+                <input class="menu-btn_login" type="submit" value="Acessar" />
+              </form>
+            </li>
+          </ul>
+
+          <nav class="mobile-nav">
+            <label class="menu-mobile-icon" for="menu-toggle">&#9776;</label>
+            <input type="checkbox" id="menu-toggle" />
+            <ul class="menu-mobile">
+              <li>
+                <a href="../pages/about.html">O Hotel</a>
+              </li>
+              <li>
+                <a href="../pages/acomodacoes.html">Acomodações</a>
+              </li>
+              <li>
+                <a href="../pages/reservas.html">Reservas</a>
+              </li>
+              <li>
+                <a href="../pages/contato.html">Contato</a>
+              </li>
+              <li>
+                <a href="../pages/login.html">Login</a>
+              </li>
+            </ul>
+          </nav>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="about-hero cover-background">
+        <h1 class="hero-title">Conheça nossa história</h1>
+      </section>
+
+      <h2 class="title">O maior hotel da cidade</h2>
+      <section id="sobre" class="section">
+        <div class="container">
+          <div class="item-wrapper-image">
+            <img
+              class="item-image"
+              src="../public/assets/images/sobre-acomodacao.png"
+              alt="Um quarto com cama de casal, espelho e quadro na parede"
+            />
+          </div>
+          <div class="content-wrapper">
+            <div class="item-content-wrapper">
+              <img
+                class="icon"
+                src="../public/assets/images/quarto.svg"
+                alt="Ícone de um quarto"
+              />
+              <h3 class="subtitle">As melhores acomodações</h3>
+            </div>
+            <p class="paragraph">
+              Colocamos você no centro de tudo, com hotéis projetados em
+              destinos icônicos, vistas impressionantes e experiências
+              inigualáveis, para que aproveite nada menos do que extraordinários
+              momentos.
+            </p>
+            <a class="btn" href="#">Saiba Mais</a>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="title">Sobre Nós</h2>
+      <section id="sobre" class="section">
+        <div class="container reverse">
+          <div class="item-wrapper-image">
+            <img
+              class="item-image"
+              src="../public/assets/images/pscina.jpg"
+              alt="Piscina do Hotel"
+            />
+          </div>
+          <div class="content-wrapper">
+            <div class="item-content-wrapper">
+              <img
+                class="icon"
+                src="../public/assets/images/services.svg"
+                alt="Ícone de um quarto"
+              />
+              <h3 class="subtitle">Serviços de alta qualidade</h3>
+            </div>
+            <p class="paragraph">
+              Nós oferecemos serviços de alta qualidade, com atendimento
+              personalizado e estilo próprio. A cada dia buscamos criar um
+              ambiente agradável e seguro para quem se hospeda conosco. Nosso
+              objetivo é fazer deste Hotel, uma extensão de sua casa!
+            </p>
+            <a class="btn" href="#">Saiba Mais</a>
+          </div>
+        </div>
+      </section>
+
+      <article>
+        <h2 class="title">Nossas acomodações</h2>
+        <div class="home-acomodacoes">
+          <div class="home-acomodacoes-images container">
+            <img
+              src="../public/assets/images/thumb-01.png"
+              alt="Uma sala com duas cadeiras e mesa de madeira"
+            />
+            <img
+              src="../public/assets/images/thumb-02.png"
+              alt="Um banheiro com pia, chuveiro e banheira"
+            />
+            <img
+              src="../public/assets/images/thumb-03.png"
+              alt="Um quarto com cama de casal e divisória para roupas"
+            />
+          </div>
+          <a class="btn" href="#">Conheça nossos serviços</a>
+        </div>
+      </article>
+
+      <article class="home-help">
+        <div class="help-container">
+          <div class="about-help-image">
+            <img
+              class="image-recepcionists"
+              src="../public/assets/images/receptionists.png"
+              alt=""
+            />
+          </div>
+          <div class="about-help-description">
+            <div class="about-help-icon">
+              <img class="icon" src="../public/assets/images/sino.png" alt="" />
+              <h3>Precisa de ajuda?</h3>
+            </div>
+            <p class="paragraph">
+              Colocamos você no centro de tudo, com hotéis projetados em
+              destinos icônicos, vistas impressionantes e experiências
+              inigualáveis, para que aproveite nada menos do que extraordinários
+              momentos.
+            </p>
+            <a
+              href="./contato.html"
+              class="btn"
+              type="submit"
+              value="fale conosco"
+            >
+              Fale conosco
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <section>
+        <article>
+          <h2 class="title">Nossa localização</h2>
+          <div class="about-localization">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.1337409414386!2d-34.89226348487034!3d-8.087840794177101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1f39459eb051%3A0xaa5e663f1e696acb!2sR.%20Bar%C3%A3o%20de%20Santo%20%C3%82ngelo%20-%20Pina%2C%20Recife%20-%20PE%2C%2051110-180!5e0!3m2!1spt-BR!2sbr!4v1671629309863!5m2!1spt-BR!2sbr"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img
+            src="../public/assets//images/logo.svg"
+            alt="Chloe Grand Hotel"
+          />
+        </div>
+        <div class="footer-item_container">
+          <div class="footer-item">
+            <h3>O Hotel</h3>
+            <ul class="footer-menu">
+              <li>
+                <a href="../pages/about.html">O Hotel</a>
+              </li>
+              <li>
+                <a href="../pages/acomodacoes.html">Acomodações</a>
+              </li>
+              <li>
+                <a href="../pages/reservas.html">Reservas</a>
+              </li>
+              <li>
+                <a href="../pages/contato.html">Contato</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-item">
+            <h3>Contato</h3>
+            <ul>
+              <li>oi@chloegrandhotel.com</li>
+              <li>81 3139-8800</li>
+            </ul>
+          </div>
+          <div class="footer-item">
+            <h3>Onde estamos</h3>
+            <ul>
+              <li>R. Barão de Santo Ângelo, 100</li>
+              <li>Recife - Pernambuco - Brasil</li>
+            </ul>
+            <h3>Nossas redes</h3>
+            <ul>
+              <div class="footer-item_social">
+                <li>
+                  <a href="#">
+                    <img
+                      src="../public/assets/images/instagram.svg"
+                      alt="Rede Social Instagram"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="../public/assets/images/twitter.svg"
+                      alt="Rede Social Twitter"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img
+                      src="../public/assets/images/facebook.svg"
+                      alt="Rede Social Facebook"
+                    />
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <p class="copy">&copy; 2022 - Todos os direitos reservados</p>
+  </body>
+</html>

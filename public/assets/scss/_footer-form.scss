@@ -1,0 +1,119 @@
+$primary-white: #558e60;
+$secondary-white: #eff5f0;
+$primary-gold: #b9ad81;
+$titles-gray: #242222;
+$paragraph-gray: #686b68;
+
+.interesse-main {
+  display: flex;
+  flex-direction: row;
+  height: 60vh;
+  background: {
+    image: url("../images/background-home.png");
+    size: cover;
+    repeat: no-repeat;
+  }
+}
+
+.interesse-left {
+  justify-items: center;
+  justify-content: center;
+  margin-left: 10vh;
+  .container {
+    margin: 0 32px;
+    padding: 68px 0px;
+  }
+  & > .subtitle {
+    margin: 5vh 0 0 4vw;
+  }
+  .btn {
+    width: 140px;
+    height: auto;
+    border-radius: 9px;
+    border: none;
+    box-shadow: none;
+    margin-left: 20vw;
+    font-size: 20px;
+    padding: 12px 22px;
+    background-color: $primary-white;
+    color: $secondary-white;
+  }
+}
+
+.interesse-right {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  left: 20vw;
+}
+
+.itens-form {
+  width: 100%;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  margin: {
+    right: 50%;
+    bottom: 5vh;
+  }
+}
+
+.nomes {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+
+.nome1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  & > label {
+    color: $titles-gray;
+    margin-bottom: 10px;
+  }
+  & > input {
+    width: 90%;
+    border: solid 1px $primary-gold;
+    padding: 12px 8px;
+    border-radius: 6px;
+  }
+}
+
+.nome2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin: 0;
+  & > label {
+    color: $titles-gray;
+    margin-bottom: 10px;
+  }
+  & > input {
+    width: 100%;
+    border: solid 1px $secondary-white;
+    padding: 12px 8px;
+    border-radius: 6px;
+  }
+}
+
+.cells {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0px;
+  & > input {
+    width: 100%;
+    border: solid 1px $primary-gold;
+    padding: 10px 8px;
+    border-radius: 6px;
+  }
+  & > label {
+    color: $titles-gray;
+    margin-bottom: 10px;
+  }
+}
