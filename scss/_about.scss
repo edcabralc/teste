@@ -1,0 +1,90 @@
+/* Seção Sobre */
+.about-hero {
+  background: url("../images/background-about.png") no-repeat;
+}
+
+.hb {
+  display: none;
+}
+/* ABOUT HELP */
+.home-help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #eff5f0;
+  padding: 68px 0px;
+ }
+
+.help-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  max-width: 1090px;
+  width: 100%;
+  margin: 0 32px;
+}
+
+.about-help-image {
+  flex: 1 1 300px;
+  max-width: 100%;
+}
+.about-help-image img {
+  border-radius: 15px;
+}
+
+.about-help-description {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+}
+
+.about-help-description h3 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.about-help-icon {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+
+/* ABOUT LOCALIZATION */
+.about-localization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 32px;
+}
+
+.about-localization > iframe {
+  width: 100%;
+  max-width: 1090px;
+  height: 350px;
+  border: 0;
+}
+
+
+@media (max-width: 960px) {
+ .help-container {
+  align-items: center;
+  gap: 38px;
+  text-align: center;
+}
+
+.about-help-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 300px;
+ }
+ 
+.about-help-description{
+  align-items: center;
+}
+
+}

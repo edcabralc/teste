@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funcionários</title>
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.jpeg" alt="logo" width="300" />
+    </header>
+    <nav>
+      <ul>
+        <li><a href="./">Painel Administrativo</a></li>
+        <li><a href="funcionarios.html">Funcionarios</a></li>
+        <li><a href="hospedes.html">Hóspedes</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+        <li><a href="../">Logout</a></li>
+      </ul>
+    </nav>
+    <hr />
+    <h1>Relatório de Funcionários</h1>
+    <table width="100%">
+      <caption>
+        Funcionários
+      </caption>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Tempo de empresa</th>
+          <th>Atividade atual</th>
+          <th>Férias</th>
+          <th>Afastamento médico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td>fulano</td>
+          <td>1 ano</td>
+          <td>
+            <select name="atividade-atual" id="atividade-atual">
+              <option value="">-</option>
+              <option value="recepcao">Recepção</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="garagem">Garagem</option>
+              <option value="servico-quarto">Serviço de Quarto</option>
+              <option value="gerencia">Gerência</option>
+              <option value="concierge">Concierge</option>
+              <option value="supervisor-andar">Supervisor de Andar</option>
+            </select>
+          </td>
+          <td>
+            <input type="radio" name="ferias" id="sim" />Sim
+            <input type="radio" name="ferias" id="nao" checked />Não
+          </td>
+          <td>
+            <input type="radio" name="afastamento-medico" id="sim" />Sim
+            <input type="radio" name="afastamento-medico" id="nao" checked />Não
+          </td>
+        </tr>
+
+        <tr>
+          <td>02</td>
+          <td>ciclano</td>
+          <td>2 anos</td>
+          <td>
+            <select name="atividade-atual" id="atividade-atual">
+              <option value="">-</option>
+              <option value="recepcao">Recepção</option>
+              <option value="restaurante">Restaurante</option>
+              <option value="garagem">Garagem</option>
+              <option value="servico-quarto">Serviço de Quarto</option>
+              <option value="gerencia">Gerência</option>
+              <option value="concierge">Concierge</option>
+              <option value="supervisor-andar">Supervisor de Andar</option>
+            </select>
+          </td>
+          <td>
+            <input type="radio" name="ferias2" id="sim" />Sim
+            <input type="radio" name="ferias2" id="nao" checked />Não
+          </td>
+          <td>
+            <input type="radio" name="afastamento-medico2" id="sim" />Sim
+            <input
+              type="radio"
+              name="afastamento-medico2"
+              id="nao"
+              checked
+            />Não
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <footer>&copy; 2022 Texies - Todos os Direitos reservados</footer>
+  </body>
+</html>
