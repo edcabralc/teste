@@ -1,0 +1,7 @@
+@use "@/assets/scss/index" as *;
+
+#app {
+    p {
+        background-color: $primary-green;
+    }
+}
