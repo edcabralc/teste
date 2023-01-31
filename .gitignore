@@ -1,7 +1,10 @@
 .DS_Store
 node_modules
 /dist
+<<<<<<< HEAD
 /.worktrees
+=======
+>>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
 
 
 # local env files
