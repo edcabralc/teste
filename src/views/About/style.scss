@@ -1,7 +1,8 @@
 @use "@/assets/scss/variables" as *;
-/* Seção Sobre */
+
 .about-hero {
     background: url("@/assets/images/background-about.png") no-repeat;
+    background-size: cover;
 }
 
 .hb {
@@ -42,10 +43,10 @@
     gap: 58px;
 }
 
-.about-help-description h3 {
-    font-weight: 700;
-    font-size: 32px;
-}
+// .about-help-description h3 {
+//     font-weight: 700;
+//     font-size: 32px;
+// }
 
 .about-help-icon {
     display: flex;

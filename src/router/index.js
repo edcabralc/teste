@@ -5,6 +5,7 @@ import RoomsView from "../views/Rooms/RoomsView.vue";
 import BookView from "../views/Book/BookView.vue";
 import ContactView from "../views/Contact/ContactView.vue";
 import SignView from "../views/Sign/SignView.vue";
+import RegisterView from "../views/Register/RegisterView.vue";
 
 const routes = [
     {
@@ -33,9 +34,14 @@ const routes = [
         component: ContactView,
     },
     {
-        path: "/sign",
-        name: "sign",
+        path: "/acessar",
+        name: "acessar",
         component: SignView,
+    },
+    {
+        path: "/cadastrar",
+        name: "cadastro",
+        component: RegisterView,
     },
 ];
 

@@ -59,7 +59,7 @@
                 <section class="secao-tipo-acomodacao">
                     <div class="container-tipo-acomodacao">
                         <h2>Escolha o tipo de acomodação</h2>
-                        <div class="container-titulos-acomodacao">
+                        <!-- <div class="container-titulos-acomodacao">
                             <input
                                 class="item-check"
                                 type="radio"
@@ -169,7 +169,9 @@
                                     />
                                 </div>
                             </label>
-                        </div>
+                        </div> -->
+
+                        <ListRoom />
                     </div>
 
                     <div class="container-resumo-reserva">
@@ -285,14 +287,16 @@
 <script>
 import MainFooter from "@/components/MainFooter.vue";
 import MainHeader from "@/components/MainHeader.vue";
+import ListRoom from "../../components/ListRoom.vue";
 
 export default {
     name: "RoomView",
     components: {
         MainHeader,
         MainFooter,
+        ListRoom,
     },
 };
 </script>
 
-<style src="./style.scss" lang="scss" scoped />
+<style src="./style.scss" lang="scss" />

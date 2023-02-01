@@ -4,7 +4,7 @@
 .home {
     &-hero {
         background: url("@/assets/images/background-home.png") no-repeat;
-        background-size: cover;
+        // background-size: cover;
     }
     &-acomodacoes {
         display: flex;
@@ -64,6 +64,7 @@
     line-height: 72px;
     max-width: 10ch;
 }
+
 .home-reserva-image img {
     border-radius: 16px;
 }

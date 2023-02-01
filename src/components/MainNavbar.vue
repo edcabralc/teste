@@ -12,7 +12,7 @@
                 </router-link>
             </li>
             <li>
-                <router-link to="/sign">
+                <router-link to="/acessar">
                     <input
                         class="menu-btn_login"
                         type="submit"
@@ -25,23 +25,10 @@
             <label class="menu-mobile-icon" for="menu-toggle">&#9776;</label>
             <input type="checkbox" id="menu-toggle" />
             <ul class="menu-mobile">
-                <!-- <li>
-                    <a href="pages/about.html">O Hotel</a>
-                </li>
-                <li>
-                    <a href="pages/acomodacoes.html">Acomodações</a>
-                </li>
-                <li>
-                    <a href="pages/reservas.html">Reservas</a>
-                </li>
-                <li>
-                    <a href="pages/contato.html">Contato</a>
-                </li>
-                <li>
-                    <a href="pages/login.html">Login</a>
-                </li> -->
-
                 <NavLink />
+                <li>
+                    <router-link to="/acessar">Login</router-link>
+                </li>
             </ul>
         </nav>
     </nav>
