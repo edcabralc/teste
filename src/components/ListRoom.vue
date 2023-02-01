@@ -1,9 +1,7 @@
 <template>
     <div
-        v-for="(
-            {id, checked, title, price, paragraph, src}, index, arr
-        ) in rooms"
-        @click="getItem(arr, id)"
+        v-for="({id, checked, title, price, paragraph, src}, index) in rooms"
+        @click="getItem(rooms, id)"
         class="container-titulos-acomodacao"
         :key="index"
     >
@@ -41,22 +39,25 @@ import {rooms} from "../helpers/dataRooms";
 export default {
     name: "ListRoom",
     data() {
-        console.log(rooms);
-        console.log(rooms.checkedData);
-        return {rooms};
+        // console.log(rooms);
+        // console.log(rooms.checkedData);
+        return {
+            rooms,
+        };
     },
     methods: {
         onToggle: (elem) => (elem = !elem),
         getItem: (arr, id) => {
-            const teste = id;
             arr.filter((item, index, arrr) => {
-                if ((item.id = teste)) {
-                    console.log(arrr[index]);
+                if (item.id == id) {
+                    console.log(item);
                 }
             });
         },
     },
-    computed: {},
+    computed: {
+        test: () => getItem(rooms, id),
+    },
 };
 </script>
 
