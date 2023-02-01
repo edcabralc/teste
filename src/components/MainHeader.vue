@@ -30,13 +30,16 @@
                         </form>
                     </li>
                     <li>
-                        <form action="pages/login.html" method="get">
+                        <router-link to="/sign" class="menu-btn_login"
+                            >Acessar</router-link
+                        >
+                        <!-- <form action="pages/login.html" method="get">
                             <input
                                 class="menu-btn_login"
                                 type="submit"
                                 value="Acessar"
                             />
-                        </form>
+                        </form> -->
                     </li>
                 </ul>
                 <nav class="mobile-nav">
