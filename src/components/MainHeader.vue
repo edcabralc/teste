@@ -9,16 +9,16 @@
             <nav class="navbar">
                 <ul class="menu">
                     <li>
-                        <router-link to="/about">O Hotel</router-link>
+                        <router-link to="/sobre">O Hotel</router-link>
                     </li>
                     <li>
-                        <a href="pages/acomodacoes.html">Acomodações</a>
+                        <router-link to="/acomodacoes">Acomodações</router-link>
                     </li>
                     <li>
-                        <a href="pages/reservas.html">Reservas</a>
+                        <router-link to="/reservar">Reservar</router-link>
                     </li>
                     <li>
-                        <a href="pages/contato.html">Contato</a>
+                        <router-link to="/contato">Contato</router-link>
                     </li>
                     <li>
                         <form action="pages/register.html" method="get">
