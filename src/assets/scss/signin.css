@@ -1,0 +1,121 @@
+/* tela de login */
+
+.sign-in {
+  width: 100vw;
+  height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.sign-in-cover {
+  flex: 1;
+  background: url("../images/background-login.jpg") no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.sign-in-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 32px;
+  width: 100%;
+  margin: 0 32px;
+  padding-top: 42px;
+}
+.sign-in-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+.sign-in-forms div > a img {
+  justify-self: flex-start;
+  width: 50%;
+}
+
+.sign-in-forms form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 50%;
+}
+
+.input-text-primary {
+  border: solid 1px #bdcfbd;
+  padding: 12px 8px;
+  border-radius: 6px;
+}
+
+.sign-in-forgot_pass a {
+  font-size: 12px;
+  color: #558e60;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.sign-in-help {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.sign-in-help a {
+  color: #558e60;
+  padding-top: 6px;
+  text-decoration: underline;
+}
+
+.sign-in-help a:hover,
+.sign-in-forgot_pass a:hover {
+  color: #558e60;
+  opacity: 0.8;
+  transition: ease 0.2s;
+  cursor: pointer;
+}
+
+.sign-in-help:before {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 3px;
+  top: 0;
+  border-top: 3px solid rgba(185, 173, 129, 0.3);
+  margin-bottom: 15px;
+}
+
+.sign-in .mobile-nav {
+  display: flex;
+  z-index: 1;
+}
+/* end de login */
+
+@media (max-width: 750px) {
+  .sign-in-cover {
+    display: none;
+  }
+  .sign-in-forms form {
+    width: 100%;
+  }
+  .input-text-primary {
+    width: 100%;
+  }
+  .mobile-nav {
+    overflow: hidden;
+    z-index: 1;
+  }
+}
