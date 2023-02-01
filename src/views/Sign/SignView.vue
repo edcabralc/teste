@@ -1,5 +1,4 @@
 <template>
-    <MainHeader />
     <main>
         <section class="sign-in">
             <div class="sign-in-container">
@@ -71,16 +70,11 @@
       </div> -->
         </section>
     </main>
-    <MainFooter />
 </template>
 
 <script>
-import MainHeader from "@/components/MainHeader.vue";
-import MainFooter from "@/components/MainFooter.vue";
-
 export default {
     name: "SignView",
-    components: {MainHeader, MainFooter},
 };
 </script>
 

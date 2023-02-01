@@ -2,24 +2,18 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <img src="@/assets/images/logo.svg" alt="Chloe Grand Hotel" />
+                <router-link to="/">
+                    <img
+                        src="@/assets/images/logo.svg"
+                        alt="Chloe Grand Hotel"
+                    />
+                </router-link>
             </div>
             <div class="footer-item_container">
                 <div class="footer-item">
                     <h3>O Hotel</h3>
                     <ul class="footer-menu">
-                        <li>
-                            <a href="pages/about.html">O Hotel</a>
-                        </li>
-                        <li>
-                            <a href="pages/acomodacoes.html">Acomodações</a>
-                        </li>
-                        <li>
-                            <a href="pages/reservas.html">Reservas</a>
-                        </li>
-                        <li>
-                            <a href="pages/contato.html">Contato</a>
-                        </li>
+                        <NavLink />
                     </ul>
                 </div>
                 <div class="footer-item">
@@ -72,12 +66,15 @@
 </template>
 
 <script>
+import NavLink from "./NavLink.vue";
+
 export default {
     name: "MainFooter",
+    components: {NavLink},
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* Footer */
 .footer {
     display: flex;
