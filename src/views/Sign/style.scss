@@ -1,4 +1,10 @@
+@use "@/assets/scss/index" as *;
+
 /* tela de login */
+
+* {
+  @include responsive($device);
+}
 
 .sign-in {
   width: 100vw;
@@ -51,7 +57,7 @@
   }
   &-forgot_pass a {
     font-size: 12px;
-    color: #558e60;
+    color: $primary-green;
     text-align: center;
     text-decoration: underline;
   }
@@ -61,7 +67,7 @@
     gap: 8px;
     align-items: center;
     & a {
-      color: #558e60;
+      color: $primary-green;
       padding-top: 6px;
       text-decoration: underline;
     }
@@ -83,14 +89,14 @@
 
 .sign-in-help a:hover,
 .sign-in-forgot_pass a:hover {
-  color: #558e60;
+  color: $primary-green;
   opacity: 0.8;
   transition: ease 0.2s;
   cursor: pointer;
 }
 
 .input-text-primary {
-  border: solid 1px #bdcfbd;
+  border: solid 1px $primary-gold;
   padding: 12px 8px;
   border-radius: 6px;
 }
