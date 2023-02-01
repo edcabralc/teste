@@ -1,11 +1,21 @@
 <template>
     <div
-        v-for="({title, price, paragraph, src}, index) in rooms"
+        v-for="(
+            {id, checked, title, price, paragraph, src}, index, arr
+        ) in rooms"
+        @click="getItem(arr, id)"
         class="container-titulos-acomodacao"
         :key="index"
     >
-        <input class="item-check" type="radio" name="acomodacao" id="deluxe" />
-        <label for="deluxe">
+        <input
+            class="item-check"
+            type="radio"
+            name="acomodacao"
+            :id="title"
+            :value="title"
+            :checked="!checked"
+        />
+        <label :for="title">
             <div class="item-label">
                 <div>
                     <div class="flex">
@@ -19,7 +29,7 @@
                     </p>
                     <p class="preco">R$ {{ price }},00</p>
                 </div>
-                <img :src="src" :alt="title" />
+                <img :src="`${src}`" :alt="title" />
             </div>
         </label>
     </div>
@@ -32,9 +42,77 @@ export default {
     name: "ListRoom",
     data() {
         console.log(rooms);
+        console.log(rooms.checkedData);
         return {rooms};
     },
+    methods: {
+        onToggle: (elem) => (elem = !elem),
+        getItem: (arr, id) => {
+            const teste = id;
+            arr.filter((item, index, arrr) => {
+                if ((item.id = teste)) {
+                    console.log(arrr[index]);
+                }
+            });
+        },
+    },
+    computed: {},
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.container-tipo-acomodacao {
+    flex: 2;
+}
+
+.container-titulos-acomodacao img {
+    flex: 1 0 30%;
+    width: 30%;
+    border-radius: 10px;
+}
+
+.item-check {
+    display: none;
+    padding: 5rem 0;
+}
+
+.item-label {
+    display: flex;
+    flex: 1;
+    border: 1px solid #016956;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fff;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #016956;
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.item-label img {
+    object-fit: cover;
+}
+
+.item-check:checked ~ label div {
+    background-color: #eff5f0;
+    color: #016956;
+}
+
+.item-check:checked ~ label .circle .checkmark {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #016956;
+}
+</style>
