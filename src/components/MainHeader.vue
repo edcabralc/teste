@@ -2,9 +2,12 @@
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <router-link to="/"
-                    ><img src="@/assets/images/logo.svg" alt="Chloe Gran Hotel"
-                /></router-link>
+                <router-link to="/">
+                    <img
+                        src="@/assets/images/logo.svg"
+                        alt="Chloe Gran Hotel"
+                    />
+                </router-link>
             </div>
             <MainNavbar />
         </div>
