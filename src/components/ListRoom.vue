@@ -14,19 +14,20 @@
                             </div>
                             <div class="input-group">
                                 <label for="datacheckin">Data check-in:</label>
-                                <input type="date" class="input-text-primary" data-checkin="datacheckin" />
+                                <input type="date" v-model="dataCheckIn" class="input-text-primary" data-checkin="datacheckin" />
+                                <!-- " @change="getDataCheckIn -->
                             </div>
                             <div class="input-group">
                                 <label for="datacheckout">Data check-out:</label>
-                                <input type="date" class="input-text-primary" data-checkout="datacheckout" />
+                                <input type="date" v-model="dataCheckout" class="input-text-primary" data-checkout="datacheckout" />
                             </div>
                             <div class="input-group">
                                 <label for="qtde_adultos">Adultos:</label>
-                                <input type="number" max="2" class="input-text-primary" data-qdtA="adultos" />
+                                <input type="number" @change="totalPessoasAcomodacao" v-model="adulto" max="10" min="0" class="input-text-primary" data-qdtA="adultos" />
                             </div>
                             <div class="input-group">
                                 <label for="qtde_criancas">Crianças:</label>
-                                <input type="number" max="2" class="input-text-primary" data-qdtC="criancas" />
+                                <input type="number" @change="totalPessoasAcomodacao" v-model="crianca" max="10" min="0" class="input-text-primary" data-qdtC="criancas" />
                             </div>
                         </div>
                     </div>
@@ -64,9 +65,15 @@
                                 <li>
                                     Acomodação: <span>{{ acomodacao }}</span>
                                 </li>
-                                <li>Check-in: <span></span></li>
-                                <li>Check-out: <span></span></li>
-                                <li>Pessoas: <span></span></li>
+                                <li>
+                                    Check-in: <span>{{ dataCheckIn }}</span>
+                                </li>
+                                <li>
+                                    Check-out: <span>{{ dataCheckout }}</span>
+                                </li>
+                                <li>
+                                    Pessoas: <span>{{ totalPessoas }}</span>
+                                </li>
                             </ul>
 
                             <div class="add-servicos">
@@ -119,7 +126,7 @@
                     </div>
                 </div>
             </section>
-             <!-- <div class="modal-wrapper">Resumo da reserva
+            <!-- <div class="modal-wrapper">Resumo da reserva
                 <div class="modal">
                     <span class="close-button">X</span>
                     <div class="modal-content">
@@ -153,11 +160,16 @@ export default {
         return {
             titleHero: "Reserve uma de nossas acomodações",
             titleH2: "Escolha o tipo de acomodação",
-            titleMinhaReserva: 'Minha reserva',
-            paragraphMinhaReserva: 'Informe a data de entrada, a saída e a quantidade de pessoas.',
+            titleMinhaReserva: "Minha reserva",
+            paragraphMinhaReserva: "Informe a data de entrada, a saída e a quantidade de pessoas.",
             rooms,
             acomodacao: "",
             subtotal: "",
+            dataCheckIn: "",
+            dataCheckout: "",
+            adulto: "",
+            crianca: "",
+            totalPessoas: "",
         };
     },
     methods: {
@@ -177,6 +189,11 @@ export default {
     },
     computed: {
         test: () => getItem(rooms, id),
+        totalPessoasAcomodacao() {
+            let pAdulto = this.adulto ? parseInt(this.adulto) : 0;
+            let pInfantil = this.crianca ? parseInt(this.crianca) : 0;
+            return (this.totalPessoas = pAdulto + pInfantil);
+        },
     },
 };
 </script>
