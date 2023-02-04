@@ -84,8 +84,10 @@
                                 <div class="add-servicos-content">
                                     <ul>
                                         <li v-for="(valor, item) in servicos" :key="item">
-                                            <input type="checkbox" :name=" item" :id="item" />&nbsp;
-                                            <label :for="item"><span> {{ item }} </span><span> - R$ {{ valor }}</span></label>
+                                            <input type="checkbox" :name="item" :id="item" @click="addServico(item)" />&nbsp;
+                                            <label :for="item"
+                                                ><span> {{ item }} </span> <span> - R$ {{ valor }}</span></label
+                                            >
                                         </li>
                                     </ul>
                                 </div>
@@ -93,10 +95,14 @@
 
                             <ul>
                                 <li>
-                                    Subtotal:<span> R$ {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}</span>
+                                    Subtotal:<span>
+                                        R$
+                                        {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}</span
+                                    >
                                 </li>
                                 <li>
-                                    Total: <span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
+                                    Total:
+                                    <span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -162,6 +168,7 @@ export default {
             },
             subtotal: "",
             total: "",
+            carrServicos: [],
         };
     },
     methods: {
@@ -184,15 +191,41 @@ export default {
             let pAdulto = this.pessoa.adulto ? parseInt(this.pessoa.adulto) : 0;
             let pInfantil = this.pessoa.crianca ? parseInt(this.pessoa.crianca) : 0;
             this.pessoa.total = pAdulto + pInfantil;
-            // console.log(this.pessoa.total);
             this.subtotal = this.subTotalReserva;
             this.total = this.totalReserva;
         },
+
+        addServico(servico) {
+            if (!this.inServico(servico)) {
+                this.carrServicos.push(servico);
+                this.subtotal = this.subTotalReserva;
+                this.total = this.totalReserva;
+            } else if (this.inServico(servico)) {
+                this.removeServico(servico);
+                this.subtotal = this.subTotalReserva;
+                this.total = this.totalReserva;
+            }
+        },
+
+        inServico(servico) {
+            return this.carrServicos.indexOf(servico) != -1;
+        },
+        removeServico(servico) {
+            const car = this.carrServicos.filter((serv) => {
+                return servico != serv;
+            });
+            this.carrServicos = car;
+        },
     },
     computed: {
-        // test: () => getItem(rooms, id),
         subTotalReserva() {
-            return this.pessoa.total ? this.pessoa.total * this.valorAcomodacao : this.valorAcomodacao;
+            let totalServico = 0;
+            if (this.carrServicos.length > 0) {
+                this.carrServicos.forEach((e) => {
+                    totalServico += this.servicos[e];
+                });
+            }
+            return this.pessoa.total ? this.pessoa.total * this.valorAcomodacao + totalServico : this.valorAcomodacao + totalServico;
         },
         totalReserva() {
             return this.subtotal;
