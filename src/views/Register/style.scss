@@ -1,0 +1,13 @@
+.register-main {
+    background: url("@/assets/images/background-contato.png") no-repeat;
+}
+
+.register {
+    width: 50%;
+}
+
+@media (max-width: 750px) {
+    .register {
+        width: 100%;
+    }
+}

@@ -2,9 +2,12 @@
 node_modules
 /dist
 <<<<<<< HEAD
+<<<<<<< HEAD
 /.worktrees
 =======
 >>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
+=======
+>>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
 
 
 # local env files

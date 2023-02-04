@@ -1,0 +1,49 @@
+@mixin responsive($device) {
+  @if $device == desktop {
+    @media (max-width: 1120px) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (max-width: 960px) {
+      @content;
+    }
+  } @else if $device == mobile {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+}
+
+@mixin font-type($size) {
+  @if $size == 24 {
+    font-size: toRem(24);
+    line-height: toRem(37);
+    font-weight: 400;
+  } @else if $size == 32 {
+    font-size: toRem(32);
+    font-weight: 700;
+  } @else if $size == 48 {
+    font-size: toRem(48);
+    font-weight: 1000;
+  }
+}
+
+@mixin oferta-box {
+  margin: 0 auto;
+  width: 90%;
+  height: 100vh;
+  padding: 0;
+}
+
+@mixin flex-inline-center {
+  display: flex;
+  align-items: center;
+}
+@mixin display-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin display-flex-column {
+  display: flex;
+  flex-direction: column;
+}

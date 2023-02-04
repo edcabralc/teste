@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Time 01 - Projeto - Hotelaria TEX
 
 ## Chloe Gran Hotel
@@ -37,10 +38,16 @@ Sistema WEB de gerenciamento de um hotel, monitorando o fluxo de hospedes, os se
 
 ## Project setup
 >>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
+=======
+# refactoring
+
+## Project setup
+>>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
 ```
 npm install
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ### Rodando localmente
 
@@ -52,6 +59,12 @@ npm run serve
 ```
 npm run serve
 ```
+=======
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+>>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
 
 ### Compiles and minifies for production
 ```
@@ -60,4 +73,7 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+<<<<<<< HEAD
 >>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
+=======
+>>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e

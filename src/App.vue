@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
@@ -51,4 +52,12 @@ nav {
   }
 >>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
 }
+=======
+    <router-view />
+</template>
+
+<style lang="scss">
+@use "@/assets/scss/reset" as *;
+@use "@/assets/scss/base" as *;
+>>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
 </style>
