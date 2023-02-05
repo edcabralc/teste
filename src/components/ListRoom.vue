@@ -92,19 +92,16 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <ul>
                                 <li>
-                                    Subtotal:<span>
-                                        R$
-                                        {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}</span
-                                    >
+                                    Subtotal:<span> R${{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}</span>
                                 </li>
                                 <li>
-                                    Total:
-                                    <span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
+                                    Total:<span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
                                 </li>
                             </ul>
+                            <input type="button" @click="desconto" class="gerarDesconto" value="Gerar Desconto">
+                            <input type="text" name="desconto" id="desconto" class="desconto">
                         </div>
 
                         <a class="btn" href="#">Continuar</a>
@@ -216,6 +213,10 @@ export default {
             });
             this.carrServicos = car;
         },
+        desconto(){
+            let codigo = Math.random().toString(36).substring(2,9).toUpperCase()
+            alert(`Código: ${codigo}`)
+        }
     },
     computed: {
         subTotalReserva() {
