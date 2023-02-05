@@ -201,37 +201,18 @@
                             />
                         </div>
 
-                        <a class="btn" href="#">Continuar</a>
+                        <a class="btn" @click="openModal">Continuar</a>
                     </div>
                 </div>
             </section>
-            <!-- <div class="modal-wrapper">Resumo da reserva
-                <div class="modal">
-                    <span class="close-button">X</span>
-                    <div class="modal-content">
-                        <h3>Resumo da reserva</h3>
-                        <div>
-                            <div class="modal-reserva">
-                                <div>
-                                    <img
-                                        src="https://picsum.photos/id/598/600/400"
-                                        alt=""
-                                    />
-                                </div>
-                                <div class="modal-carrinho">
-                                    
-                                </div>
-                            <div class="btn">Reservar</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <ModalBook v-model="modalOpen"></ModalBook>
         </main>
     </div>
 </template>
 
 <script>
 import {rooms} from "../helpers/dataRooms";
+import ModalBook from "./ModalBook.vue";
 
 export default {
     name: "ListRoom",
@@ -264,9 +245,15 @@ export default {
             subtotal: "",
             total: "",
             carrServicos: [],
+            modalOpen: false,
         };
     },
     methods: {
+        openModal() {
+            this.modalOpen = !this.modalOpen;
+            console.log(this);
+            console.log(this.modalOpen);
+        },
         onToggle: (elem) => (elem = !elem),
         getItem: (arr, id) => {
             arr.filter((item, index, arrr) => {
@@ -291,7 +278,6 @@ export default {
             this.subtotal = this.subTotalReserva;
             this.total = this.totalReserva;
         },
-
         addServico(servico) {
             if (!this.inServico(servico)) {
                 this.carrServicos.push(servico);
@@ -303,7 +289,6 @@ export default {
                 this.total = this.totalReserva;
             }
         },
-
         inServico(servico) {
             return this.carrServicos.indexOf(servico) != -1;
         },
@@ -337,6 +322,7 @@ export default {
             return this.subtotal;
         },
     },
+    components: {ModalBook},
 };
 </script>
 
