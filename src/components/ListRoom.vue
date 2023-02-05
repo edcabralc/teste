@@ -163,7 +163,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <ul>
                                 <li class="flex-space">
                                     <span> Subtotal: </span>
@@ -188,6 +187,18 @@
                                     >
                                 </li>
                             </ul>
+                            <input
+                                type="button"
+                                @click="desconto"
+                                class="gerarDesconto"
+                                value="Gerar Desconto"
+                            />
+                            <input
+                                type="text"
+                                name="desconto"
+                                id="desconto"
+                                class="desconto"
+                            />
                         </div>
 
                         <a class="btn" href="#">Continuar</a>
@@ -301,6 +312,13 @@ export default {
                 return servico != serv;
             });
             this.carrServicos = car;
+        },
+        desconto() {
+            let codigo = Math.random()
+                .toString(36)
+                .substring(2, 9)
+                .toUpperCase();
+            alert(`Código: ${codigo}`);
         },
     },
     computed: {
