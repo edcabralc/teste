@@ -100,8 +100,8 @@
                                     Total:<span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
                                 </li>
                             </ul>
-                            <input type="button" @click="desconto" class="gerarDesconto" value="Gerar Desconto">
-                            <input type="text" name="desconto" id="desconto" class="desconto">
+                            <input type="button" @click="desconto" class="gerarDesconto" value="Gerar Desconto" />
+                            <input type="text" name="cupomDesconto" v-model="cupomDesconto" id="cupomDesconto" class="desconto" @blur="totalReserva()" />
                         </div>
 
                         <a class="btn" href="#">Continuar</a>
@@ -163,6 +163,7 @@ export default {
                 crianca: "",
                 total: "",
             },
+            cupomDesconto: "",
             subtotal: "",
             total: "",
             carrServicos: [],
@@ -178,29 +179,28 @@ export default {
             });
         },
         getAcomodacao(title, price) {
-            // console.log(title, price);
             this.acomodacao = title;
             this.valorAcomodacao = parseInt(price).toFixed(2);
             this.subtotal = this.subTotalReserva;
-            this.total = this.totalReserva;
+            this.total = this.subtotal
         },
         totalPessoasAcomodacao() {
             let pAdulto = this.pessoa.adulto ? parseInt(this.pessoa.adulto) : 0;
             let pInfantil = this.pessoa.crianca ? parseInt(this.pessoa.crianca) : 0;
             this.pessoa.total = pAdulto + pInfantil;
             this.subtotal = this.subTotalReserva;
-            this.total = this.totalReserva;
+            this.total = this.subtotal
         },
 
         addServico(servico) {
             if (!this.inServico(servico)) {
                 this.carrServicos.push(servico);
                 this.subtotal = this.subTotalReserva;
-                this.total = this.totalReserva;
+                this.total = this.subtotal
             } else if (this.inServico(servico)) {
                 this.removeServico(servico);
                 this.subtotal = this.subTotalReserva;
-                this.total = this.totalReserva;
+                this.total = this.subtotal
             }
         },
 
@@ -213,10 +213,18 @@ export default {
             });
             this.carrServicos = car;
         },
-        desconto(){
-            let codigo = Math.random().toString(36).substring(2,9).toUpperCase()
-            alert(`Código: ${codigo}`)
-        }
+        desconto() {
+            let codigo = Math.random().toString(36).substring(2, 9).toUpperCase();
+            alert(`Código: ${codigo}`);
+        },
+        totalReserva() {
+            if (this.subtotal && this.cupomDesconto != "") {
+                this.total = this.subtotal - this.subtotal * 0.1;
+            } else if (this.subtotal) {
+                this.subtotal = this.subTotalReserva;
+                this.total = this.subtotal;
+            }
+        },
     },
     computed: {
         subTotalReserva() {
@@ -226,10 +234,11 @@ export default {
                     totalServico += this.servicos[e];
                 });
             }
-            return this.pessoa.total ? this.pessoa.total * this.valorAcomodacao + totalServico : this.valorAcomodacao + totalServico;
-        },
-        totalReserva() {
-            return this.subtotal;
+            if (!this.pessoa.total || !this.valorAcomodacao) {
+                return totalServico;
+            } else {
+                return this.pessoa.total ? this.pessoa.total * this.valorAcomodacao + totalServico : this.valorAcomodacao + totalServico;
+            }
         },
     },
 };
