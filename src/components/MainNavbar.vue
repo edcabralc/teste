@@ -3,21 +3,13 @@
         <ul class="menu">
             <NavLink />
             <li>
-                <router-link to="/cadastrar">
-                    <input
-                        class="menu-btn_signin"
-                        type="submit"
-                        value="Cadastrar"
-                    />
+                <router-link to="/cadastrar" class="menu-btn menu-btn_signin">
+                    Cadastrar
                 </router-link>
             </li>
             <li>
-                <router-link to="/acessar">
-                    <input
-                        class="menu-btn_login"
-                        type="submit"
-                        value="Acessar"
-                    />
+                <router-link to="/acessar" class="menu-btn menu-btn_login">
+                    Acessar
                 </router-link>
             </li>
         </ul>
@@ -44,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
+@use "@/assets/scss/index" as *;
 .navbar {
     font-size: 20px;
 }
@@ -55,55 +48,48 @@ export default {
     gap: 36px;
 }
 
-.menu a {
-    color: #242222;
+.menu a:not(.menu-btn_signin):not(.menu-btn_login) {
+    color: $titles-gray;
     padding: 28px 0;
     position: relative;
 }
 
-.menu a:not([type="submit"]):hover::before {
+.menu a:not(.menu-btn_signin):not(.menu-btn_login):hover::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: #b9ad81;
+    background-color: $primary-gold;
     bottom: 0;
 }
 
-.menu-btn_signin,
-.menu-btn_login {
+.menu-btn {
     width: 140px;
     height: auto;
     border-radius: 9px;
     border: none;
-    box-shadow: none;
     font-size: 20px;
     padding: 12px 22px;
-    color: #558e60;
-}
-
-.menu-btn_login {
-    background-color: #e1e6e1;
-}
-
-.menu-btn_login {
-    background-color: #fff;
-    border: 1px solid #558e60;
-}
-
-.menu-btn_signin:hover {
-    background-color: #558e60;
-    color: #fff;
-    opacity: 0.5;
+    text-align: center;
     transition: ease 0.2s;
-    cursor: pointer;
-}
-
-.menu-btn_login:hover {
-    cursor: pointer;
-    background-color: #e1e6e1;
-    transition: ease 0.2s;
-    cursor: pointer;
+    &_signin {
+        border: 1px solid $primary-green;
+        &:hover {
+            background-color: $primary-green;
+            color: #fff;
+            filter: opacity(50%);
+            cursor: pointer;
+        }
+    }
+    &_login {
+        background-color: $primary-green;
+        color: #fff;
+        &:hover {
+            filter: opacity(50%);
+            color: #fff;
+            cursor: pointer;
+        }
+    }
 }
 
 .mobile-nav {

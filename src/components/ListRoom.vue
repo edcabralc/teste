@@ -14,20 +14,48 @@
                             </div>
                             <div class="input-group">
                                 <label for="datacheckin">Data check-in:</label>
-                                <input type="date" v-model="dataCheckIn" class="input-text-primary" data-checkin="datacheckin" />
+                                <input
+                                    type="date"
+                                    v-model="dataCheckIn"
+                                    class="input-text-primary"
+                                    data-checkin="datacheckin"
+                                />
                                 <!-- " @change="getDataCheckIn -->
                             </div>
                             <div class="input-group">
-                                <label for="datacheckout">Data check-out:</label>
-                                <input type="date" v-model="dataCheckout" class="input-text-primary" data-checkout="datacheckout" />
+                                <label for="datacheckout"
+                                    >Data check-out:</label
+                                >
+                                <input
+                                    type="date"
+                                    v-model="dataCheckout"
+                                    class="input-text-primary"
+                                    data-checkout="datacheckout"
+                                />
                             </div>
                             <div class="input-group">
                                 <label for="qtde_adultos">Adultos:</label>
-                                <input type="number" @change="totalPessoasAcomodacao" v-model="pessoa.adulto" max="10" min="0" class="input-text-primary" data-qdtA="adultos" />
+                                <input
+                                    type="number"
+                                    @change="totalPessoasAcomodacao"
+                                    v-model="pessoa.adulto"
+                                    max="10"
+                                    min="0"
+                                    class="input-text-primary"
+                                    data-qdtA="adultos"
+                                />
                             </div>
                             <div class="input-group">
                                 <label for="qtde_criancas">Crianças:</label>
-                                <input type="number" @change="totalPessoasAcomodacao" v-model="pessoa.crianca" max="10" min="0" class="input-text-primary" data-qdtC="criancas" />
+                                <input
+                                    type="number"
+                                    @change="totalPessoasAcomodacao"
+                                    v-model="pessoa.crianca"
+                                    max="10"
+                                    min="0"
+                                    class="input-text-primary"
+                                    data-qdtC="criancas"
+                                />
                             </div>
                         </div>
                     </div>
@@ -37,10 +65,26 @@
                 <div class="container">
                     <div class="container-tipo-acomodacao">
                         <h2>{{ titleH2 }}</h2>
-                        <div v-for="({id, title, price, paragraph, src}, index) in rooms" @click="getItem(rooms, id)" class="container-titulos-acomodacao" :key="index">
-                            <input class="item-check" type="radio" name="acomodacao" :id="title" :value="title" />
+                        <div
+                            v-for="(
+                                {id, title, price, paragraph, src}, index
+                            ) in rooms"
+                            @click="getItem(rooms, id)"
+                            class="container-titulos-acomodacao"
+                            :key="index"
+                        >
+                            <input
+                                class="item-check"
+                                type="radio"
+                                name="acomodacao"
+                                :id="title"
+                                :value="title"
+                            />
                             <!--:checked="!checked"-->
-                            <label :for="title" @click="getAcomodacao(title, price)">
+                            <label
+                                :for="title"
+                                @click="getAcomodacao(title, price)"
+                            >
                                 <div class="item-label">
                                     <div>
                                         <div class="flex">
@@ -63,46 +107,85 @@
                         <h2>Resumo da reserva</h2>
                         <div class="container-listas">
                             <ul>
-                                <li>
-                                    Acomodação: <span>{{ acomodacao }}</span>
+                                <li class="flex-space">
+                                    <span>Acomodação:</span>
+                                    <span>
+                                        {{ acomodacao }}
+                                    </span>
                                 </li>
-                                <li>
-                                    Check-in: <span>{{ dataCheckIn }}</span>
+                                <li class="flex-space">
+                                    <span>Check-in:</span>
+                                    <span>
+                                        {{ dataCheckIn }}
+                                    </span>
                                 </li>
-                                <li>
-                                    Check-out: <span>{{ dataCheckout }}</span>
+                                <li class="flex-space">
+                                    <span>Check-out:</span>
+                                    <span>
+                                        {{ dataCheckout }}
+                                    </span>
                                 </li>
-                                <li>
-                                    Pessoas: <span>{{ pessoa.total }}</span>
+                                <li class="flex-space">
+                                    <span>Pessoas:</span>
+                                    <span>
+                                        {{ pessoa.total }}
+                                    </span>
                                 </li>
                             </ul>
 
                             <div class="add-servicos">
                                 <span>
-                                    <a href="" class="btn-add-servicos"> Adicionar mais serviços </a>
+                                    <a href="" class="btn-add-servicos">
+                                        Adicionar mais serviços
+                                    </a>
                                 </span>
                                 <div class="add-servicos-content">
                                     <ul>
-                                        <li v-for="(valor, item) in servicos" :key="item">
-                                            <input type="checkbox" :name="item" :id="item" @click="addServico(item)" />&nbsp;
-                                            <label :for="item"
-                                                ><span> {{ item }} </span> <span> - R$ {{ valor }}</span></label
+                                        <li
+                                            v-for="(valor, servico) in servicos"
+                                            :key="servico"
+                                            class="flex"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                :name="servico"
+                                                :id="servico"
+                                                @click="addServico(servico)"
+                                            />
+                                            <label
+                                                :for="servico"
+                                                class="flex-space"
                                             >
+                                                <span>{{ servico }} </span>
+                                                <span>R$ {{ valor }},00</span>
+                                            </label>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <ul>
-                                <li>
-                                    Subtotal:<span>
+                                <li class="flex-space">
+                                    <span> Subtotal: </span>
+                                    <span>
                                         R$
-                                        {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}</span
-                                    >
+                                        {{
+                                            subtotal
+                                                ? parseInt(subtotal).toFixed(2)
+                                                : "0.00"
+                                        }}
+                                    </span>
                                 </li>
-                                <li>
-                                    Total:
-                                    <span id="total">R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span>
+                                <li class="flex-space">
+                                    <span> Total: </span>
+                                    <span id="total"
+                                        >R$
+                                        {{
+                                            total
+                                                ? parseInt(total).toFixed(2)
+                                                : "0.00"
+                                        }}</span
+                                    >
                                 </li>
                             </ul>
                         </div>
@@ -146,7 +229,8 @@ export default {
             titleHero: "Reserve uma de nossas acomodações",
             titleH2: "Escolha o tipo de acomodação",
             titleMinhaReserva: "Minha reserva",
-            paragraphMinhaReserva: "Informe a data de entrada, a saída e a quantidade de pessoas.",
+            paragraphMinhaReserva:
+                "Informe a data de entrada, a saída e a quantidade de pessoas.",
             rooms,
             acomodacao: "",
             dataCheckIn: "",
@@ -154,12 +238,12 @@ export default {
             valorAcomodacao: "",
             // servicos: [{cofre: 50}, {lavanderia: 100}, {cafe: 50}, {massagem: 150}, {sala: 350}, {passeio: 250}],
             servicos: {
-                cofre: 50,
-                lavanderia: 100,
-                cafe: 50,
-                massagem: 150,
-                sala: 350,
-                passeio: 250,
+                Cofre: 50,
+                Lavanderia: 100,
+                Cafe: 50,
+                Massagem: 150,
+                Sala: 350,
+                Passeio: 250,
             },
             pessoa: {
                 adulto: "",
@@ -189,7 +273,9 @@ export default {
         },
         totalPessoasAcomodacao() {
             let pAdulto = this.pessoa.adulto ? parseInt(this.pessoa.adulto) : 0;
-            let pInfantil = this.pessoa.crianca ? parseInt(this.pessoa.crianca) : 0;
+            let pInfantil = this.pessoa.crianca
+                ? parseInt(this.pessoa.crianca)
+                : 0;
             this.pessoa.total = pAdulto + pInfantil;
             this.subtotal = this.subTotalReserva;
             this.total = this.totalReserva;
@@ -225,7 +311,9 @@ export default {
                     totalServico += this.servicos[e];
                 });
             }
-            return this.pessoa.total ? this.pessoa.total * this.valorAcomodacao + totalServico : this.valorAcomodacao + totalServico;
+            return this.pessoa.total
+                ? this.pessoa.total * this.valorAcomodacao + totalServico
+                : this.valorAcomodacao + totalServico;
         },
         totalReserva() {
             return this.subtotal;
@@ -259,6 +347,24 @@ export default {
     background: #fff;
     margin: 1rem 0;
     gap: 1rem;
+    & p {
+        margin: 1rem 0;
+    }
+    & .preco {
+        font-weight: bold;
+    }
+    & img {
+        object-fit: cover;
+    }
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    & span:last-child {
+        font-weight: 400;
+    }
 }
 
 .circle {
@@ -271,10 +377,6 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
-}
-
-.item-label img {
-    object-fit: cover;
 }
 
 .item-check:checked ~ label div {

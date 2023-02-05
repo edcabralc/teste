@@ -1,52 +1,9 @@
 {
-<<<<<<< HEAD
   "name": "refactoring",
-=======
-  "name": "app",
->>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-=======
-    "build": "vue-cli-service build"
->>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
-  },
-  "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-<<<<<<< HEAD
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "node-sass": "^8.0.0",
-    "sass-loader": "^13.2.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
-=======
     "build": "vue-cli-service build"
   },
   "dependencies": {
@@ -60,19 +17,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0"
->>>>>>> e0fba4731ee9442babaeec08816ccec55eac823e
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ]
-=======
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0"
   }
->>>>>>> da88480a3d17c4234cb0c976fc92c5affabd795e
 }
