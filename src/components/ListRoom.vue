@@ -12,50 +12,56 @@
                                 <h2>{{ titleMinhaReserva }}</h2>
                                 <p>{{ paragraphMinhaReserva }}</p>
                             </div>
-                            <div class="input-group">
-                                <label for="datacheckin">Data check-in:</label>
-                                <input
-                                    type="date"
-                                    v-model="dataCheckIn"
-                                    class="input-text-primary"
-                                    data-checkin="datacheckin"
-                                />
-                                <!-- " @change="getDataCheckIn -->
+                            <div class="flex">
+                                <div class="input-group">
+                                    <label for="datacheckin"
+                                        >Data check-in:</label
+                                    >
+                                    <input
+                                        type="date"
+                                        v-model="dataCheckIn"
+                                        class="input-text-primary"
+                                        data-checkin="datacheckin"
+                                    />
+                                    <!-- " @change="getDataCheckIn -->
+                                </div>
+                                <div class="input-group">
+                                    <label for="datacheckout"
+                                        >Data check-out:</label
+                                    >
+                                    <input
+                                        type="date"
+                                        v-model="dataCheckout"
+                                        class="input-text-primary"
+                                        data-checkout="datacheckout"
+                                    />
+                                </div>
                             </div>
-                            <div class="input-group">
-                                <label for="datacheckout"
-                                    >Data check-out:</label
-                                >
-                                <input
-                                    type="date"
-                                    v-model="dataCheckout"
-                                    class="input-text-primary"
-                                    data-checkout="datacheckout"
-                                />
-                            </div>
-                            <div class="input-group">
-                                <label for="qtde_adultos">Adultos:</label>
-                                <input
-                                    type="number"
-                                    @change="totalPessoasAcomodacao"
-                                    v-model="pessoa.adulto"
-                                    max="10"
-                                    min="0"
-                                    class="input-text-primary"
-                                    data-qdtA="adultos"
-                                />
-                            </div>
-                            <div class="input-group">
-                                <label for="qtde_criancas">Crianças:</label>
-                                <input
-                                    type="number"
-                                    @change="totalPessoasAcomodacao"
-                                    v-model="pessoa.crianca"
-                                    max="10"
-                                    min="0"
-                                    class="input-text-primary"
-                                    data-qdtC="criancas"
-                                />
+                            <div class="flex">
+                                <div class="input-group">
+                                    <label for="qtde_adultos">Adultos:</label>
+                                    <input
+                                        type="number"
+                                        @change="totalPessoasAcomodacao"
+                                        v-model="pessoa.adulto"
+                                        max="10"
+                                        min="0"
+                                        class="input-text-primary"
+                                        data-qdtA="adultos"
+                                    />
+                                </div>
+                                <div class="input-group">
+                                    <label for="qtde_criancas">Crianças:</label>
+                                    <input
+                                        type="number"
+                                        @change="totalPessoasAcomodacao"
+                                        v-model="pessoa.crianca"
+                                        max="10"
+                                        min="0"
+                                        class="input-text-primary"
+                                        data-qdtC="criancas"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
