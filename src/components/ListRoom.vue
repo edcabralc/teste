@@ -1,7 +1,7 @@
 <template>
     <div>
         <main class="main-reserva">
-            <section class="home-hero cover-background">
+            <section class="book-hero cover-background">
                 <h1 class="hero-title">{{ titleHero }}</h1>
             </section>
             <section class="section">
