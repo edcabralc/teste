@@ -195,10 +195,13 @@
                             </ul>
                             <input
                                 type="button"
-                                @click="desconto"
+                                @click.once="desconto"
                                 class="gerarDesconto"
                                 value="Gerar Desconto"
                             />
+                            <p class="add-cupom" 
+                            v-show="showCupom">Seu Cupom: <strong>
+                             {{cupom}} </strong></p>
                             <input
                                 type="text"
                                 name="cupomDesconto"
@@ -236,6 +239,8 @@ export default {
             dataCheckIn: "",
             dataCheckout: "",
             valorAcomodacao: "",
+            showCupom: false,
+            cupom: '',
             // servicos: [{cofre: 50}, {lavanderia: 100}, {cafe: 50}, {massagem: 150}, {sala: 350}, {passeio: 250}],
             servicos: {
                 Cofre: 50,
@@ -307,11 +312,13 @@ export default {
             this.carrServicos = car;
         },
         desconto() {
+            this.showCupom = !this.showCupom
             let codigo = Math.random()
                 .toString(36)
                 .substring(2, 9)
                 .toUpperCase();
-            alert(`Código: ${codigo}`);
+                this.cupom = codigo
+            // alert(`Código: ${codigo}`);
         },
         totalReserva() {
             if (this.subtotal && this.cupomDesconto != "") {
@@ -411,5 +418,9 @@ export default {
     height: 11px;
     border-radius: 50%;
     background-color: #016956;
+}
+
+.add-cupom {
+    margin: 20px 0;
 }
 </style>
