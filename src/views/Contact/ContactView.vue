@@ -28,6 +28,7 @@
                         <div class="cells">
                             <label for="subject">Assunto</label>
                             <select name="assunto" class="input-text-primary">
+                                <option value="">Selecione</option>
                                 <option value="cancelamento">
                                     Cancelamento de reserva
                                 </option>

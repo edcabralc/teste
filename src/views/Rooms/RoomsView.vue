@@ -144,15 +144,15 @@
         </div>
         <article class="home-reserva acomodacao">
             <div class="home-reserva-container">
-                <div class="home-reserva-content">
-                    <h2>Faça agora mesmo sua reserva</h2>
-                    <a class="btn" href="#">Fazer reserva</a>
-                </div>
                 <div class="home-reserva-image">
                     <img
                         src="@/assets/images/bell.png"
                         alt="Uma mão tocando em um sino"
                     />
+                </div>
+                <div class="home-reserva-content">
+                    <h2>Faça agora mesmo sua reserva</h2>
+                    <a class="btn" href="#">Fazer reserva</a>
                 </div>
             </div>
         </article>

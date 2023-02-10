@@ -8,6 +8,19 @@
 .hb {
     display: none;
 }
+/* HOME ACOMODAÇOES */
+
+.home-acomodacoes {
+    display: flex;
+    justify-content: center;
+    margin: 30px;     
+
+    & ~ a {
+        border: 1px solid black;
+        
+    }
+}
+
 /* ABOUT HELP */
 .home-help {
     display: flex;
@@ -43,15 +56,14 @@
     gap: 58px;
 }
 
-// .about-help-description h3 {
-//     font-weight: 700;
-//     font-size: 32px;
-// }
-
 .about-help-icon {
     display: flex;
     gap: 18px;
     align-items: center;
+
+    & > h3 {
+        font-size: 32px;
+    }
 }
 
 /* ABOUT LOCALIZATION */

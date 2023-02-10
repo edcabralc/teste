@@ -421,6 +421,28 @@ div.box-caracteristicas img {
 
 .acomodacao.home-reserva {
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.home-reserva {
+    &-image {
+        & img {
+            border-radius: 20px;
+        }
+    }
+
+    &-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 40px;
+
+        & a {
+            margin-top: 40px;
+        }
+    }
 }
 
 div.box-fazer-reserva {

@@ -2,7 +2,7 @@
 
 .home {
     &-hero {
-        background: url("@/assets/images/background-home.png") no-repeat;
+        background-image: url("@/assets/images/background-home.png");
     }
     &-acomodacoes {
         display: flex;
