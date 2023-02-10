@@ -89,7 +89,7 @@
                                     <span>Pessoas:</span>
                                     <span>
                                         {{ pessoa.total }}
-                                    </span>
+                                    </span>dadosAcomodacoes
                                 </li>
                             </ul>
 

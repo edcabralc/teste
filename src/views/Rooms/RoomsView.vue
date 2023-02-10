@@ -8,81 +8,7 @@
             <section class="acomodacao">
                 <article class="container-acomodacao">
                     <h2 class="title">Nossas Acomodações</h2>
-                    <acomodacao/>
-
-                    <div class="flex-img">
-                        <div class="foto-hover">
-                            <!-- <div class="foto-info" v-for="">
-
-                            </div> -->
-                        </div>
-                    </div>
-
-                    <!-- <div class="flex-img">
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Standard-01</h5>
-                                <p>Quarto para solteiro com cama dupla</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/standard/1.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Standard-02</h5>
-                                <p>Quarto com cama individual com mais conforto</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/standard/casal.jpeg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Standard-03</h5>
-                                <p>Quarto para casais que querem o melhor sem pagar muito</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/standard/5.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Master-01</h5>
-                                <p>Conforto e qualidade</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/master/03.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Master-02</h5>
-                                <p>Um quarto aconchegante e muito conforto</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/master/02.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Master-03</h5>
-                                <p>Conforme é o que temos a oferecer.</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/master/master.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Deluxe-01</h5>
-                                <p>Quarto de luxo e muito conforto</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/deluxe/1.jpeg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Deluxe-02</h5>
-                                <p>Quarto com acesso a deck privativo</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/deluxe/luxo1.jpg" alt="" />
-                        </div>
-                        <div class="foto-hover">
-                            <div class="foto-info">
-                                <h5>Deluxe-03</h5>
-                                <p>Todo conforto e comodidade da melhor suite de luxo</p>
-                            </div>
-                            <img src="@/assets/images/acomodacoes/deluxe/luxo2.jpg" alt="" />
-                        </div>
-                    </div> -->
+                    <Acomodacao/>
                 </article>
             </section>
 
@@ -133,7 +59,7 @@ export default {
     components: {
         MainHeader,
         MainFooter,
-        Acomodacao
+        Acomodacao,
     },
 };
 </script>
