@@ -24,7 +24,7 @@ Sistema WEB de gerenciamento de um hotel, monitorando o fluxo de hospedes, os se
 
 ## Gerenciamento do Projeto
 
--   [**Trello**](https://trello.com/b/r2J6ImFp/projeto-hotelaria)
+-   [**Trello**](https://trello.com/b/Yde9XrBe/projeto-hotelaria-backend)
 -   [**Figma**](https://www.figma.com/file/KxRREhZ3GBQyiFQfaX2bGC/chloe-grand-hotel?node-id=18%3A479&t=4Wzv7nAF6mdNhZox-0)
 
 ## Para executar o projeto
