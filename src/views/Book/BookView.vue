@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <MainHeader />
-        <ListRoom />
-        <MainFooter />
-    </div>
+  <div>
+    <MainHeader />
+    <ListRoom />
+    <MainFooter />
+  </div>
 </template>
 
 <script>
-import MainFooter from "@/components/MainFooter.vue";
-import MainHeader from "@/components/MainHeader.vue";
+import MainFooter from "@/components/commons/MainFooter.vue";
+import MainHeader from "@/components/commons/MainHeader.vue";
 import ListRoom from "@/components/ListRoom.vue";
 
 export default {
-    name: "RoomView",
-    components: {
-        MainHeader,
-        MainFooter,
-        ListRoom,
-    },
+  name: "RoomView",
+  components: {
+    MainHeader,
+    MainFooter,
+    ListRoom,
+  },
 };
 </script>
 
