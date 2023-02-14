@@ -2,17 +2,17 @@
   <div>
     <MainHeader />
     <main>
-      <section class="acomodacoes-hero cover-background">
-        <h1 class="hero-title">Confortável como um abraço!</h1>
-      </section>
+      <hero-banner
+        title="Confortável como um abraço!"
+        class="acomodacoes-hero" />
       <section class="acomodacao">
         <article class="container-acomodacao">
-          <h2 class="title">Nossas Acomodações</h2>
+          <main-title>Nossas acomodações</main-title>
           <Acomodacao />
         </article>
       </section>
 
-      <h2 class="title">Acomodação Destaque</h2>
+      <main-title>Acomodação destaque</main-title>
 
       <section id="sobre" class="section">
         <div class="container reverse">
@@ -28,14 +28,14 @@
                 class="icon"
                 src="@/assets/images/quarto.svg"
                 alt="Ícone de um quarto" />
-              <h3 class="subtitle">Deluxe 02</h3>
+              <main-subtitle>Deluxe 02</main-subtitle>
             </div>
-            <p class="paragraph"
-              >O mais completo no hotel tanto em termos de serviço como de
+            <main-paragraph>
+              O mais completo no hotel tanto em termos de serviço como de
               acomodações. Um deck exclusivo com vista para o mar, a melhor
-              vista do hotel.</p
-            >
-            <a class="btn" href="#">Saiba Mais</a>
+              vista do hotel.
+            </main-paragraph>
+            <link-button href="/acomodacoes">Saiba mais</link-button>
           </div>
         </div>
       </section>
@@ -47,7 +47,7 @@
         <div class="home-reserva-container">
           <div class="home-reserva-content">
             <h2>Faça agora mesmo sua reserva</h2>
-            <a class="btn" href="#">Fazer reserva</a>
+            <link-button href="/reserva">Fazer reserva</link-button>
           </div>
           <div class="home-reserva-image">
             <img
@@ -62,16 +62,26 @@
 </template>
 
 <script>
-import MainHeader from "@/components/commons/MainHeader.vue";
-import MainFooter from "@/components/commons/MainFooter.vue";
-import Acomodacao from "@/components/Acomodacao.vue";
+import MainHeader from "@/components/commons/MainHeader";
+import MainFooter from "@/components/commons/MainFooter";
+import Acomodacao from "@/components/Acomodacao";
+import MainTitle from "@/components/commons/MainTitle";
+import MainParagraph from "@/components/commons/MainParagraph";
+import HeroBanner from "@/components/commons/HeroBanner";
+import LinkButton from "@/components/commons/LinkButton";
+import MainSubtitle from "@/components/commons/MainSubtitle.vue";
 
 export default {
   name: "RoomsView",
   components: {
     MainHeader,
+    MainParagraph,
+    MainTitle,
+    LinkButton,
+    HeroBanner,
     MainFooter,
     Acomodacao,
+    MainSubtitle,
   },
 };
 </script>

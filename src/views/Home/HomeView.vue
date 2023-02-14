@@ -1,11 +1,13 @@
 <template>
-  <MainHeader />
+  <main-header />
   <main>
-    <section class="home-hero cover-background">
+    <!-- <section class="home-hero cover-background">
       <h1 class="hero-title">Aqui seu bem estar é coisa séria!</h1>
-    </section>
+    </section> -->
+    <hero-banner title="Aqui seu bem estar é coisa séria!" class="home-hero" />
 
-    <h2 class="title">O maior hotel da cidade</h2>
+    <main-title>O maior hotel da cidade</main-title>
+
     <section id="sobre" class="section">
       <div class="container">
         <div class="item-wrapper-image">
@@ -20,20 +22,25 @@
               class="icon"
               src="@/assets/images/quarto.svg"
               alt="Ícone de um quarto" />
-            <h3 class="subtitle">As melhores acomodações</h3>
+            <h3 class="subtitle"></h3>
+            <main-subtitle>As melhores acomodações</main-subtitle>
           </div>
-          <p class="paragraph">
+
+          <main-paragraph>
             Colocamos você no centro de tudo, com hotéis projetados em destinos
             icônicos, vistas impressionantes e experiências inigualáveis, para
             que aproveite nada menos do que extraordinários momentos.
-          </p>
-          <a class="btn" href="#">Saiba Mais</a>
+          </main-paragraph>
+
+          <!-- <a class="btn" href="#">Saiba Mais</a> -->
+          <link-button href="/acomodacoes">Saiba mais</link-button>
+          <!-- <LinkButton>Saiba mais</LinkButton> -->
         </div>
       </div>
     </section>
 
     <article>
-      <h2 class="title">Nossas acomodações</h2>
+      <main-title>Nossas acomodações</main-title>
       <div class="home-acomodacoes">
         <div class="home-acomodacoes-images container">
           <img
@@ -46,7 +53,7 @@
             src="@/assets/images/thumb-03.png"
             alt="Um quarto com cama de casal e divisória para roupas" />
         </div>
-        <a class="btn" href="#">Conheça nossos serviços</a>
+        <link-button href="/sobre">Conheça nossos serviços</link-button>
       </div>
     </article>
 
@@ -54,7 +61,7 @@
       <div class="home-reserva-container">
         <div class="home-reserva-content">
           <h2>Faça agora mesmo sua reserva</h2>
-          <a class="btn" href="#">Fazer reserva</a>
+          <link-button href="/reserar">Fazer reserva</link-button>
         </div>
         <div class="home-reserva-image">
           <img
@@ -78,31 +85,42 @@
               class="icon"
               src="@/assets/images/gastronomia.svg"
               alt="Ícone de um chef de cozinha" />
-            <h3 class="subtitle">Gastronomia 5 estrelas</h3>
+            <main-subtitle>Gastronomia cinco estrelas</main-subtitle>
           </div>
-          <p class="paragraph">
+          <main-paragraph>
             Primeiro hotel da região a fazer parte do selo The Leading Hotels of
             the World, sinônimo de design, arquitetura, luxo e sofisticação no
             mundo todo. Cozinha de alto requinte com os chefs mais renomados no
             mundo gastronômico.
-          </p>
-          <a class="btn" href="#">Saiba Mais</a>
+          </main-paragraph>
+
+          <link-button href="/sobre">Saiba mais</link-button>
         </div>
       </div>
     </section>
   </main>
-  <MainFooter />
+  <main-footer />
 </template>
 
 <script>
-import MainFooter from "@/components/commons/MainFooter.vue";
-import MainHeader from "@/components/commons/MainHeader.vue";
+import MainHeader from "@/components/commons/MainHeader";
+import HeroBanner from "@/components/commons/HeroBanner";
+import MainTitle from "@/components/commons/MainTitle";
+import MainSubtitle from "@/components/commons/MainSubtitle";
+import LinkButton from "@/components/commons/LinkButton";
+import MainFooter from "@/components/commons/MainFooter";
+import MainParagraph from "@/components/commons/MainParagraph";
 
 export default {
   name: "HomeView",
   components: {
     MainHeader,
+    HeroBanner,
+    LinkButton,
+    MainTitle,
+    MainSubtitle,
     MainFooter,
+    MainParagraph,
   },
 };
 </script>

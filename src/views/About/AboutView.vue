@@ -1,11 +1,8 @@
 <template>
-  <MainHeader />
+  <main-header />
   <main>
-    <section class="about-hero cover-background">
-      <h1 class="hero-title">Conheça nossa história</h1>
-    </section>
-
-    <h2 class="title">O maior hotel da cidade</h2>
+    <hero-banner title="Conheça nossa história" class="about-hero" />
+    <main-title>O maior hotel da cidade</main-title>
     <section id="sobre" class="section">
       <div class="container">
         <div class="item-wrapper-image">
@@ -20,19 +17,18 @@
               class="icon"
               src="@/assets/images/quarto.svg"
               alt="Ícone de um quarto" />
-            <h3 class="subtitle">As melhores acomodações</h3>
+            <main-subtitle>As melhores acomodações</main-subtitle>
           </div>
-          <p class="paragraph">
+          <main-paragraph>
             Colocamos você no centro de tudo, com hotéis projetados em destinos
             icônicos, vistas impressionantes e experiências inigualáveis, para
             que aproveite nada menos do que extraordinários momentos.
-          </p>
-          <a class="btn" href="#">Saiba Mais</a>
+          </main-paragraph>
+          <link-button href="/acomodacoes">Saiba mais</link-button>
         </div>
       </div>
     </section>
-
-    <h2 class="title">Sobre Nós</h2>
+    <main-title>Sobre nós</main-title>
     <section id="sobre" class="section">
       <div class="container reverse">
         <div class="item-wrapper-image">
@@ -47,20 +43,20 @@
               class="icon"
               src="@/assets/images/services.svg"
               alt="Ícone de um quarto" />
-            <h3 class="subtitle">Serviços de alta qualidade</h3>
+            <main-subtitle>Serviço de alta qualidade</main-subtitle>
           </div>
-          <p class="paragraph">
+          <main-paragraph>
             Nós oferecemos serviços de alta qualidade, com atendimento
             personalizado e estilo próprio. A cada dia buscamos criar um
             ambiente agradável e seguro para quem se hospeda conosco. Nosso
             objetivo é fazer deste Hotel, uma extensão de sua casa!
-          </p>
-          <a class="btn" href="#">Saiba Mais</a>
+          </main-paragraph>
+          <link-button href="/acomodacoes">Saiba mais</link-button>
         </div>
       </div>
     </section>
     <article>
-      <h2 class="title">Nossas acomodações</h2>
+      <main-title>Nossas acomodações</main-title>
       <div class="home-acomodacoes">
         <div class="home-acomodacoes-images container">
           <img
@@ -73,7 +69,7 @@
             src="@/assets/images/thumb-03.png"
             alt="Um quarto com cama de casal e divisória para roupas" />
         </div>
-        <a class="btn" href="#">Conheça nossos serviços</a>
+        <link-button href="/sobre">Conheça nossos serviços</link-button>
       </div>
     </article>
     <article class="home-help">
@@ -89,25 +85,19 @@
             <img class="icon" src="@/assets/images/sino.png" alt="" />
             <h3>Precisa de ajuda?</h3>
           </div>
-          <p class="paragraph">
+          <main-paragraph>
             Colocamos você no centro de tudo, com hotéis projetados em destinos
             icônicos, vistas impressionantes e experiências inigualáveis, para
             que aproveite nada menos do que extraordinários momentos.
-          </p>
-          <a
-            href="./contato.html"
-            class="btn"
-            type="submit"
-            value="fale conosco">
-            Fale conosco
-          </a>
+          </main-paragraph>
+          <link-button href="/contato">Fale conosco</link-button>
         </div>
       </div>
     </article>
 
     <section>
       <article>
-        <h2 class="title">Nossa localização</h2>
+        <main-title>Nossa localização</main-title>
         <div class="about-localization">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.1337409414386!2d-34.89226348487034!3d-8.087840794177101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1f39459eb051%3A0xaa5e663f1e696acb!2sR.%20Bar%C3%A3o%20de%20Santo%20%C3%82ngelo%20-%20Pina%2C%20Recife%20-%20PE%2C%2051110-180!5e0!3m2!1spt-BR!2sbr!4v1671629309863!5m2!1spt-BR!2sbr"
@@ -119,16 +109,29 @@
       </article>
     </section>
   </main>
-  <MainFooter />
+  <main-footer />
 </template>
 
 <script>
-import MainHeader from "@/components/commons/MainHeader.vue";
-import MainFooter from "@/components/commons/MainFooter.vue";
+import MainHeader from "@/components/commons/MainHeader";
+import HeroBanner from "@/components/commons/HeroBanner";
+import MainTitle from "@/components/commons/MainTitle";
+import MainSubtitle from "@/components/commons/MainSubtitle";
+import LinkButton from "@/components/commons/LinkButton";
+import MainFooter from "@/components/commons/MainFooter";
+import MainParagraph from "@/components/commons/MainParagraph";
 
 export default {
   name: "AboutView",
-  components: { MainFooter, MainHeader },
+  components: {
+    MainHeader,
+    HeroBanner,
+    LinkButton,
+    MainTitle,
+    MainSubtitle,
+    MainFooter,
+    MainParagraph,
+  },
 };
 </script>
 

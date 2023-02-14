@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/Home/HomeView";
-import AboutView from "../views/About/AboutView";
-import RoomsView from "../views/Rooms/RoomsView";
-import BookView from "../views/Book/BookView";
-import ContactView from "../views/Contact/ContactView";
-import SignView from "../views/Sign/SignView";
-import RegisterView from "../views/Register/RegisterView";
+import HomeView from "@/views/Home/HomeView";
+import AboutView from "@/views/About/AboutView";
+import RoomsView from "@/views/Rooms/RoomsView";
+import BookView from "@/views/Book/BookView";
+import ContactView from "@/views/Contact/ContactView";
+import SignView from "@/views/Sign/SignView";
+import RegisterView from "@/views/Register/RegisterView";
 
 const routes = [
   {
