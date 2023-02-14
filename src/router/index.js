@@ -6,6 +6,7 @@ import BookView from "../views/Book/BookView.vue";
 import ContactView from "../views/Contact/ContactView.vue";
 import SignView from "../views/Sign/SignView.vue";
 import RegisterView from "../views/Register/RegisterView.vue";
+import AvaliacaoHotelView from "../views/Avaliacao/AvaliacaoHotelView.vue"
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: "/cadastrar",
         name: "cadastro",
         component: RegisterView,
+    },
+    {
+        path: "/avaliacao",
+        name: "avaliacao",
+        component: AvaliacaoHotelView,
     },
 ];
 

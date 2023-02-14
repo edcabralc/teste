@@ -1,17 +1,18 @@
 <template>
     <div class="flex-img" >
         <div class="foto-hover" v-for="acomodacao in acomodacoes" :key="acomodacao.titulo">
-            <div class="foto-info">
+            <div class="foto-info"  @click="selecionarAcomodacao">
                 <h5>{{acomodacao.titulo}}</h5>
                 <p>{{ acomodacao.descricao }}</p>
             </div>
-            <img :src="`${acomodacao.src}`" alt="" />
+            <img :src="`${acomodacao.src}`" alt=""/>
         </div>
     </div>
 </template>
 
 <script>
 import {acomodacoes} from "../helpers/AcomodacaoData";
+import { Acomodacao } from "@/assets/class/Acomodacao";
 export default {
     name: "Acomodacao",
     data() {
@@ -19,6 +20,12 @@ export default {
             acomodacoes
         };
     },
+    methods:{
+        selecionarAcomodacao(e){
+            let acomoda = new Acomodacao()
+            acomoda.getAcomodacao(e)
+        },
+    }
 };
 </script>
 
