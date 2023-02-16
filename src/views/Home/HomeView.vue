@@ -1,12 +1,21 @@
 <template>
   <main-header />
   <main>
-    <!-- <section class="home-hero cover-background">
-      <h1 class="hero-title">Aqui seu bem estar é coisa séria!</h1>
-    </section> -->
     <hero-banner title="Aqui seu bem estar é coisa séria!" class="home-hero" />
 
     <main-title>O maior hotel da cidade</main-title>
+
+    <div v-for="{ id, title, paragraph, src } in rooms" :key="id">
+      <li>
+        <p>{{ id }}</p>
+      </li>
+      <li
+        ><h2>{{ title }}</h2></li
+      >
+      <li>{{ paragraph }}</li>
+      <li><img :src="src" :alt="title" /></li>
+    </div>
+    <div>{{ this.$store.state.rooms }}</div>
 
     <section id="sobre" class="section">
       <div class="container">
@@ -121,6 +130,11 @@ export default {
     MainSubtitle,
     MainFooter,
     MainParagraph,
+  },
+  computed: {
+    rooms() {
+      return this.$store.state.rooms;
+    },
   },
 };
 </script>

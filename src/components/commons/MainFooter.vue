@@ -65,6 +65,7 @@ import NavLink from "./NavLink.vue";
 export default {
   name: "MainFooter",
   components: { NavLink },
+  computed: {},
 };
 </script>
 

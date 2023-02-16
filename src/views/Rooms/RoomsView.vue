@@ -69,7 +69,7 @@ import MainTitle from "@/components/commons/MainTitle";
 import MainParagraph from "@/components/commons/MainParagraph";
 import HeroBanner from "@/components/commons/HeroBanner";
 import LinkButton from "@/components/commons/LinkButton";
-import MainSubtitle from "@/components/commons/MainSubtitle.vue";
+import MainSubtitle from "@/components/commons/MainSubtitle";
 
 export default {
   name: "RoomsView",
