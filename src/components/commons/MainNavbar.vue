@@ -27,7 +27,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use "@/assets/scss/index" as *;
 .navbar {
   font-size: 20px;

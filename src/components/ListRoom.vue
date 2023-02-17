@@ -313,8 +313,14 @@ export default {
           : this.valorAcomodacao + totalServico;
       }
     },
+    acomodacoes() {
+      return this.$store.state.acomodacoes;
+    },
   },
   components: { ModalBook, HeroBanner, LinkButton },
+  created() {
+    this.$store.dispatch("loadRooms");
+  },
 };
 </script>
 

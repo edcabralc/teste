@@ -4,11 +4,19 @@ import { acomodacoes } from "@/helpers/AcomodacaoData";
 
 export default createStore({
   state: {
-    acomodacoes,
-    rooms,
+    acomodacoes: [],
+    // rooms,
   },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    loadRooms(state, acomodacoes) {
+      state.acomodacoes = acomodacoes;
+    },
+  },
+  actions: {
+    loadRooms({ commit }) {
+      commit("loadRooms", acomodacoes);
+    },
+  },
   modules: {},
 });
