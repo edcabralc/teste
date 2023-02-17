@@ -1,18 +1,6 @@
 <template>
   <main>
     <hero-banner title="Conheça nossa história" class="about-hero" />
-
-    <div v-for="{ id, title, paragraph, src } in rooms" :key="id">
-      <li>
-        <p>{{ id }}</p>
-      </li>
-      <li
-        ><h2>{{ title }}</h2></li
-      >
-      <li>{{ paragraph }}</li>
-      <li><img :src="src" :alt="title" /></li>
-    </div>
-
     <main-title>O maior hotel da cidade</main-title>
     <section id="sobre" class="section">
       <div class="container">
@@ -138,12 +126,7 @@ export default {
     MainSubtitle,
     MainParagraph,
   },
-  computed: {
-    rooms() {
-      return this.$store.state.rooms;
-    },
-  },
 };
 </script>
 
-<style src="./style.scss" lang="scss" />
+<style src="./style.scss" lang="scss" scoped />

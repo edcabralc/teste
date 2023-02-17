@@ -1,0 +1,19 @@
+@use "@/assets/scss/variables" as *;
+
+.feedback-hero {
+  background-image: url("@/assets/images/background-feedbacks.png");
+}
+
+.content-feedback {
+  background-color: #eff5f0;
+  height: 634px;
+}
+
+.feedback-title {
+  font-size: 86px;
+  font-weight: 700;
+  line-height: 104px;
+  letter-spacing: center;
+  text-align: center;
+  color: #fff;
+}

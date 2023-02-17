@@ -6,6 +6,7 @@ import BookView from "@/views/Book/BookView";
 import ContactView from "@/views/Contact/ContactView";
 import SignView from "@/views/Sign/SignView";
 import RegisterView from "@/views/Register/RegisterView";
+import FeedbackView from "@/views/Feedback/FeedbackView";
 import MainHeader from "@/components/commons/MainHeader";
 import MainFooter from "@/components/commons/MainFooter";
 
@@ -52,6 +53,15 @@ const routes = [
     components: {
       header: MainHeader,
       mainpage: ContactView,
+      footer: MainFooter,
+    },
+  },
+  {
+    path: "/feedback",
+    name: "feedback",
+    components: {
+      header: MainHeader,
+      mainpage: FeedbackView,
       footer: MainFooter,
     },
   },
