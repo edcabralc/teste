@@ -60,17 +60,15 @@
 </template>
 
 <script>
-import NavLink from "./NavLink.vue";
+import NavLink from "@/components/commons/NavLink";
 
 export default {
   name: "MainFooter",
   components: { NavLink },
-  computed: {},
 };
 </script>
 
 <style lang="scss">
-/* Footer */
 .footer {
   display: flex;
   justify-content: center;
@@ -133,6 +131,4 @@ a,
   display: flex;
   gap: 15px;
 }
-
-/* end Footer */
 </style>

@@ -1,22 +1,7 @@
 <template>
-  <main-header />
   <main>
     <hero-banner title="Aqui seu bem estar é coisa séria!" class="home-hero" />
-
     <main-title>O maior hotel da cidade</main-title>
-
-    <div v-for="{ id, title, paragraph, src } in rooms" :key="id">
-      <li>
-        <p>{{ id }}</p>
-      </li>
-      <li
-        ><h2>{{ title }}</h2></li
-      >
-      <li>{{ paragraph }}</li>
-      <li><img :src="src" :alt="title" /></li>
-    </div>
-    <div>{{ this.$store.state.rooms }}</div>
-
     <section id="sobre" class="section">
       <div class="container">
         <div class="item-wrapper-image">
@@ -40,10 +25,7 @@
             icônicos, vistas impressionantes e experiências inigualáveis, para
             que aproveite nada menos do que extraordinários momentos.
           </main-paragraph>
-
-          <!-- <a class="btn" href="#">Saiba Mais</a> -->
           <link-button href="/acomodacoes">Saiba mais</link-button>
-          <!-- <LinkButton>Saiba mais</LinkButton> -->
         </div>
       </div>
     </section>
@@ -108,35 +90,25 @@
       </div>
     </section>
   </main>
-  <main-footer />
 </template>
 
 <script>
-import MainHeader from "@/components/commons/MainHeader";
 import HeroBanner from "@/components/commons/HeroBanner";
 import MainTitle from "@/components/commons/MainTitle";
 import MainSubtitle from "@/components/commons/MainSubtitle";
 import LinkButton from "@/components/commons/LinkButton";
-import MainFooter from "@/components/commons/MainFooter";
 import MainParagraph from "@/components/commons/MainParagraph";
 
 export default {
   name: "HomeView",
   components: {
-    MainHeader,
     HeroBanner,
     LinkButton,
     MainTitle,
     MainSubtitle,
-    MainFooter,
     MainParagraph,
-  },
-  computed: {
-    rooms() {
-      return this.$store.state.rooms;
-    },
   },
 };
 </script>
 
-<style src="./style.scss" lang="scss" />
+<style src="./style.scss" lang="scss" scoped />

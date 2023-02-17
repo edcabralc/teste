@@ -1,5 +1,4 @@
 <template>
-  <main-header />
   <main>
     <hero-banner title="Conheça nossa história" class="about-hero" />
 
@@ -121,27 +120,22 @@
       </article>
     </section>
   </main>
-  <main-footer />
 </template>
 
 <script>
-import MainHeader from "@/components/commons/MainHeader";
 import HeroBanner from "@/components/commons/HeroBanner";
 import MainTitle from "@/components/commons/MainTitle";
 import MainSubtitle from "@/components/commons/MainSubtitle";
 import LinkButton from "@/components/commons/LinkButton";
-import MainFooter from "@/components/commons/MainFooter";
 import MainParagraph from "@/components/commons/MainParagraph";
 
 export default {
   name: "AboutView",
   components: {
-    MainHeader,
     HeroBanner,
     LinkButton,
     MainTitle,
     MainSubtitle,
-    MainFooter,
     MainParagraph,
   },
   computed: {

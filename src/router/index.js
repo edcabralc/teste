@@ -6,42 +6,70 @@ import BookView from "@/views/Book/BookView";
 import ContactView from "@/views/Contact/ContactView";
 import SignView from "@/views/Sign/SignView";
 import RegisterView from "@/views/Register/RegisterView";
+import MainHeader from "@/components/commons/MainHeader";
+import MainFooter from "@/components/commons/MainFooter";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    components: {
+      header: MainHeader,
+      mainpage: HomeView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/sobre",
     name: "sobre",
-    component: AboutView,
+    components: {
+      header: MainHeader,
+      mainpage: AboutView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/acomodacoes",
     name: "acomodacoes",
-    component: RoomsView,
+    components: {
+      header: MainHeader,
+      mainpage: RoomsView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/reservar",
     name: "reservar",
-    component: BookView,
+    components: {
+      header: MainHeader,
+      mainpage: BookView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/contato",
     name: "contato",
-    component: ContactView,
+    components: {
+      header: MainHeader,
+      mainpage: ContactView,
+      footer: MainFooter,
+    },
   },
   {
     path: "/acessar",
     name: "acessar",
-    component: SignView,
+    components: {
+      login: SignView,
+    },
   },
   {
     path: "/cadastrar",
     name: "cadastro",
-    component: RegisterView,
+    components: {
+      header: MainHeader,
+      mainpage: RegisterView,
+      footer: MainFooter,
+    },
   },
 ];
 

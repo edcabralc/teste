@@ -1,12 +1,7 @@
 <template>
-  <MainHeader />
   <main>
-    <div class="register-main cover-background">
-      <h1 class="hero-title">Registro de Novo Usuário</h1>
-    </div>
-
-    <h2 class="title">Bem-vindo ao melhor hotel da cidade</h2>
-
+    <hero-banner title="Registro de Novo Usuário" class="register-main" />
+    <main-title>Bem-vindo ao melhor hotel da cidade</main-title>
     <section class="section">
       <div class="container">
         <article class="register">
@@ -37,17 +32,16 @@
       </div>
     </section>
   </main>
-  <MainFooter />
 </template>
 
 <script>
-import MainFooter from "@/components/commons/MainFooter.vue";
-import MainHeader from "@/components/commons/MainHeader.vue";
+import HeroBanner from "@/components/commons/HeroBanner";
+import MainTitle from "@/components/commons/MainTitle";
 
 export default {
   name: "RegisterView",
-  components: { MainHeader, MainFooter },
+  components: { HeroBanner, MainTitle },
 };
 </script>
 
-<style src="./style.scss" lang="scss" />
+<style src="./style.scss" lang="scss" scoped />

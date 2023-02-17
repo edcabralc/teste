@@ -1,10 +1,6 @@
 <template>
-  <main-header />
   <main>
     <hero-banner title="Estamos aqui para ajudar você" class="contact-main" />
-    <!-- <div class="contact-main cover-background">
-      <h1 class="hero-title">Estamos aqui para ajudar você</h1>
-    </div> -->
     <div class="contact">
       <section class="section">
         <main-title>Entre em contato conosco</main-title>
@@ -64,20 +60,15 @@
       </article>
     </section>
   </main>
-  <main-footer />
 </template>
 
 <script>
-import MainHeader from "@/components/commons/MainHeader";
-import MainFooter from "@/components/commons/MainFooter";
 import HeroBanner from "@/components/commons/HeroBanner";
 import MainTitle from "@/components/commons/MainTitle";
 
 export default {
   name: "ContactView",
   components: {
-    MainHeader,
-    MainFooter,
     HeroBanner,
     MainTitle,
   },
