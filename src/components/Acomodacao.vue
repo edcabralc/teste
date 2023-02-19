@@ -3,10 +3,11 @@
     <div
       class="foto-hover"
       v-for="acomodacao in acomodacoes"
-      :key="acomodacao.titulo">
-      <div class="foto-info" @click="selecionarAcomodacao">
+      :key="acomodacao.titulo"
+    >
+      <div class="foto-info" :data-id="acomodacao.id" @click="selecionarAcomodacao">
         <h5>{{ acomodacao.titulo }}</h5>
-        <p>{{ acomodacao.descricao }}</p>
+        <!-- <p>{{ acomodacao.descricao }}</p> -->
       </div>
       <img :src="`${acomodacao.src}`" alt="" />
     </div>
@@ -14,7 +15,8 @@
 </template>
 
 <script>
-import {acomodacoes} from "../helpers/AcomodacaoData";
+import { acomodacoes } from "../helpers/AcomodacaoData";
+import { Acomodacao } from "@/class/Acomodacao";
 export default {
   name: "Acomodacao",
   data() {

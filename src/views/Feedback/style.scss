@@ -7,6 +7,51 @@
 .content-feedback {
   background-color: #eff5f0;
   height: 634px;
+  display: flex;
+  flex-direction: column;
+
+  & .content-descricao{
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-around;
+    & p{
+      margin-top: 10px;
+      text-align: justify;
+      word-spacing: 10px;
+      line-height: 30px;
+    }
+
+    & .content-info{
+      width: 50%;
+
+      & .content-titulo{
+        display: flex;
+        & h1{
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  & .content-imagem {
+    & img{
+      width: 450px;
+      height: 400px;
+      border-radius: 20px;
+    }
+  
+  }
+
+  & .btn-feedback{
+    width: 140px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #558e60;
+    border: 0;
+    cursor: pointer;
+  }
 }
 
 .feedback-title {
