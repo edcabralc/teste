@@ -1,101 +1,99 @@
 @use "@/assets/scss/variables" as *;
 
 .about-hero {
-    background: url("@/assets/images/background-about.png") no-repeat;
-    background-size: cover;
+  background: url("@/assets/images/background-about.png") no-repeat;
 }
 
 .hb {
-    display: none;
+  display: none;
 }
 /* HOME ACOMODAÇOES */
 
 .home-acomodacoes {
-    display: flex;
-    justify-content: center;
-    margin: 30px;     
+  display: flex;
+  justify-content: center;
+  margin: 30px;
 
-    & ~ a {
-        border: 1px solid black;
-        
-    }
+  & ~ a {
+    border: 1px solid black;
+  }
 }
 
 /* ABOUT HELP */
 .home-help {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: #eff5f0;
-    padding: 68px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #eff5f0;
+  padding: 68px 0px;
 }
 
 .help-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 48px;
-    max-width: 1090px;
-    width: 100%;
-    margin: 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  max-width: 1090px;
+  width: 100%;
+  margin: 0 32px;
 }
 
 .about-help-image {
-    flex: 1 1 300px;
-    max-width: 100%;
+  flex: 1 1 300px;
+  max-width: 100%;
 }
 .about-help-image img {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .about-help-description {
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 58px;
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
 }
 
 .about-help-icon {
-    display: flex;
-    gap: 18px;
-    align-items: center;
+  display: flex;
+  gap: 18px;
+  align-items: center;
 
-    & > h3 {
-        font-size: 32px;
-    }
+  & > h3 {
+    font-size: 32px;
+  }
 }
 
 /* ABOUT LOCALIZATION */
 .about-localization {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 32px;
 }
 
 .about-localization > iframe {
-    width: 100%;
-    max-width: 1090px;
-    height: 350px;
-    border: 0;
+  width: 100%;
+  max-width: 1090px;
+  height: 350px;
+  border: 0;
 }
 
 @media (max-width: 960px) {
-    .help-container {
-        align-items: center;
-        gap: 38px;
-        text-align: center;
-    }
+  .help-container {
+    align-items: center;
+    gap: 38px;
+    text-align: center;
+  }
 
-    .about-help-image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex: 1 0 300px;
-    }
+  .about-help-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 300px;
+  }
 
-    .about-help-description {
-        align-items: center;
-    }
+  .about-help-description {
+    align-items: center;
+  }
 }
