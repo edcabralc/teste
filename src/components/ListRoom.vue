@@ -1,200 +1,199 @@
 <template>
-  <div>
-    <main class="main-reserva">
-      <hero-banner title="Reserve uma de nossas acomodações" class="book-hero">
-      </hero-banner>
-      <section class="section">
-        <div class="container">
-          <div class="right-reserva">
-            <div class="card-inputs">
-              <div>
-                <h2>{{ titleMinhaReserva }}</h2>
-                <p>{{ paragraphMinhaReserva }}</p>
+  <main class="main-reserva">
+    <hero-banner title="Reserve uma de nossas acomodações" class="book-hero">
+    </hero-banner>
+    <section class="section">
+      <div class="container">
+        <div class="right-reserva">
+          <div class="card-inputs">
+            <div>
+              <h2>{{ titleMinhaReserva }}</h2>
+              <p>{{ paragraphMinhaReserva }}</p>
+            </div>
+            <div class="flex">
+              <div class="input-group">
+                <label for="datacheckin">Data check-in:</label>
+                <input
+                  type="date"
+                  v-model="dataCheckIn"
+                  class="input-text-primary"
+                  data-checkin="datacheckin" />
+                <!-- " @change="getDataCheckIn -->
               </div>
-              <div class="flex">
-                <div class="input-group">
-                  <label for="datacheckin">Data check-in:</label>
-                  <input
-                    type="date"
-                    v-model="dataCheckIn"
-                    class="input-text-primary"
-                    data-checkin="datacheckin" />
-                  <!-- " @change="getDataCheckIn -->
-                </div>
-                <div class="input-group">
-                  <label for="datacheckout">Data check-out:</label>
-                  <input
-                    type="date"
-                    v-model="dataCheckout"
-                    class="input-text-primary"
-                    data-checkout="datacheckout" />
-                </div>
+              <div class="input-group">
+                <label for="datacheckout">Data check-out:</label>
+                <input
+                  type="date"
+                  v-model="dataCheckout"
+                  class="input-text-primary"
+                  data-checkout="datacheckout" />
               </div>
-              <div class="flex">
-                <div class="input-group">
-                  <label for="qtde_adultos">Adultos:</label>
-                  <input
-                    type="number"
-                    @change="totalPessoasAcomodacao"
-                    v-model="pessoa.adulto"
-                    max="10"
-                    min="0"
-                    class="input-text-primary"
-                    data-qdtA="adultos" />
-                </div>
-                <div class="input-group">
-                  <label for="qtde_criancas">Crianças:</label>
-                  <input
-                    type="number"
-                    @change="totalPessoasAcomodacao"
-                    v-model="pessoa.crianca"
-                    max="10"
-                    min="0"
-                    class="input-text-primary"
-                    data-qdtC="criancas" />
-                </div>
+            </div>
+            <div class="flex">
+              <div class="input-group">
+                <label for="qtde_adultos">Adultos:</label>
+                <input
+                  type="number"
+                  @change="totalPessoasAcomodacao"
+                  v-model="pessoa.adulto"
+                  max="10"
+                  min="0"
+                  class="input-text-primary"
+                  data-qdtA="adultos" />
+              </div>
+              <div class="input-group">
+                <label for="qtde_criancas">Crianças:</label>
+                <input
+                  type="number"
+                  @change="totalPessoasAcomodacao"
+                  v-model="pessoa.crianca"
+                  max="10"
+                  min="0"
+                  class="input-text-primary"
+                  data-qdtC="criancas" />
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="container-tipo-acomodacao">
-            <h2>{{ titleH2 }}</h2>
-            <div
-              v-for="({ id, title, price, paragraph, src }, index) in rooms"
-              @click="getItem(rooms, id)"
-              class="container-titulos-acomodacao"
-              :key="index">
-              <input
-                class="item-check"
-                type="radio"
-                name="acomodacao"
-                :id="title"
-                :value="title" />
-              <!--:checked="!checked"-->
-              <label :for="title" @click="getAcomodacao(title, price)">
-                <div class="item-label">
-                  <div>
-                    <div class="flex">
-                      <span class="circle">
-                        <span class="checkmark"></span>
-                      </span>
-                      <h3>{{ title }}</h3>
-                    </div>
-                    <p>
-                      {{ paragraph }}
-                    </p>
-                    <p class="preco">R$ {{ price }},00</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="container-tipo-acomodacao">
+          <h2>{{ titleH2 }}</h2>
+          <!-- {{ acomodacoes }} -->
+          <!-- {{ getRoom(acomodacoes) }} -->
+          <div
+            v-for="(quarto, index) in getQuarto"
+            @click=""
+            class="container-titulos-acomodacao"
+            :key="index">
+            <input
+              class="item-check"
+              type="radio"
+              name="acomodacao"
+              :id="quarto.titulo"
+              :value="quarto.titulo" />
+            <label :for="quarto.titulo" @click="addToCart(quarto)">
+              <div class="item-label">
+                <div>
+                  <div class="flex">
+                    <span class="circle">
+                      <span class="checkmark"></span>
+                    </span>
+                    <h3>{{ quarto.titulo }}</h3>
                   </div>
-                  <img :src="`${src}`" :alt="title" />
+                  <p>
+                    {{ quarto.descricao }}
+                  </p>
+                  <p class="preco">R$ {{ quarto.preco }},00</p>
                 </div>
-              </label>
-            </div>
-          </div>
-          <div class="container-resumo-reserva">
-            <h2>Resumo da reserva</h2>
-            <div class="container-listas">
-              <ul>
-                <li class="flex-space">
-                  <span>Acomodação:</span>
-                  <span>
-                    {{ acomodacao }}
-                  </span>
-                </li>
-                <li class="flex-space">
-                  <span>Check-in:</span>
-                  <span>
-                    {{ dataCheckIn }}
-                  </span>
-                </li>
-                <li class="flex-space">
-                  <span>Check-out:</span>
-                  <span>
-                    {{ dataCheckout }}
-                  </span>
-                </li>
-                <li class="flex-space">
-                  <span>Pessoas:</span>
-                  <span> {{ pessoa.total }} </span>dadosAcomodacoes
-                </li>
-              </ul>
-
-              <div class="add-servicos">
-                <span>
-                  <a href="" class="btn-add-servicos">
-                    Adicionar mais serviços
-                  </a>
-                </span>
-                <div class="add-servicos-content">
-                  <ul>
-                    <li
-                      v-for="(valor, servico) in servicos"
-                      :key="servico"
-                      class="flex">
-                      <input
-                        type="checkbox"
-                        :name="servico"
-                        :id="servico"
-                        @click="addServico(servico)" />
-                      <label :for="servico" class="flex-space">
-                        <span>{{ servico }} </span>
-                        <span>R$ {{ valor }},00</span>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
+                <img :src="`${quarto.src}`" :alt="quarto.titulo" />
               </div>
-              <ul>
-                <li class="flex-space">
-                  <span> Subtotal: </span>
-                  <span>
-                    R$
-                    {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}
-                  </span>
-                </li>
-                <li class="flex-space">
-                  <span> Total: </span>
-                  <span id="total"
-                    >R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span
-                  >
-                </li>
-              </ul>
-              <input
-                type="button"
-                @click.once="desconto"
-                class="gerarDesconto"
-                value="Gerar Desconto" />
-              <p class="add-cupom" v-show="showCupom">
-                Seu Cupom: <strong> {{ cupom }} </strong>
-              </p>
-              <input
-                type="text"
-                name="cupomDesconto"
-                v-model="cupomDesconto"
-                id="cupomDesconto"
-                class="desconto"
-                @blur="totalReserva()" />
+            </label>
+          </div>
+        </div>
+        <div class="container-resumo-reserva">
+          <h2>Resumo da reserva</h2>
+          <div class="container-listas">
+            <ul>
+              <li class="flex-space">
+                <span>Acomodação:</span>
+                <span>
+                  {{ acomodacoesOnCart.titulo }}
+                </span>
+              </li>
+              <li class="flex-space">
+                <span>Check-in:</span>
+                <span>
+                  {{ dataCheckIn }}
+                </span>
+              </li>
+              <li class="flex-space">
+                <span>Check-out:</span>
+                <span>
+                  {{ dataCheckout }}
+                </span>
+              </li>
+              <li class="flex-space">
+                <span>Pessoas:</span>
+                <span> {{ pessoa.total }} </span>dadosAcomodacoes
+              </li>
+            </ul>
+
+            <div class="add-servicos">
+              <span>
+                <a href="" class="btn-add-servicos">
+                  Adicionar mais serviços
+                </a>
+              </span>
+              <div class="add-servicos-content">
+                <ul>
+                  <li
+                    v-for="(valor, servico) in servicos"
+                    :key="servico"
+                    class="flex">
+                    <input
+                      type="checkbox"
+                      :name="servico"
+                      :id="servico"
+                      @change="addServico(servico)" />
+                    <label :for="servico" class="flex-space">
+                      <span>{{ servico }} </span>
+                      <span>R$ {{ valor }},00</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <!-- <link-button @click="openModal" href="/acomodacoes"
+            <ul>
+              <li class="flex-space">
+                <span> Subtotal: </span>
+                <span>
+                  R$
+                  {{ subtotal ? parseInt(subtotal).toFixed(2) : "0.00" }}
+                </span>
+              </li>
+              <li class="flex-space">
+                <span> Total: </span>
+                <span id="total"
+                  >R$ {{ total ? parseInt(total).toFixed(2) : "0.00" }}</span
+                >
+              </li>
+            </ul>
+            <input
+              type="button"
+              @click.once="desconto"
+              class="gerarDesconto"
+              value="Gerar Desconto" />
+            <p class="add-cupom" v-show="showCupom">
+              Seu Cupom: <strong> {{ cupom }} </strong>
+            </p>
+            <input
+              type="text"
+              name="cupomDesconto"
+              v-model="cupomDesconto"
+              id="cupomDesconto"
+              class="desconto"
+              @blur="totalReserva()" />
+          </div>
+          <!-- <link-button @click="openModal" href="/acomodacoes"
               >Continuar</link-button
             > -->
-            <a class="btn" @click="openModal">Continuar</a>
-          </div>
+          <a class="btn" @click="openModal">Continuar</a>
         </div>
-      </section>
-      <ModalBook
+      </div>
+    </section>
+    <!-- <ModalBook
         :lista="rooms"
         @click="modalOpen"
-        v-show="modalOpen"></ModalBook>
-    </main>
-  </div>
+        v-show="modalOpen"></ModalBook> -->
+  </main>
 </template>
 
 <script>
 import { rooms } from "../helpers/dataRooms";
-import ModalBook from "./ModalBook";
+// import ModalBook from "./ModalBook";
 import HeroBanner from "./commons/HeroBanner";
 import LinkButton from "./commons/LinkButton";
 
@@ -202,6 +201,7 @@ export default {
   name: "ListRoom",
   data() {
     return {
+      test: "",
       titleHero: "Reserve uma de nossas acomodações",
       titleH2: "Escolha o tipo de acomodação",
       titleMinhaReserva: "Minha reserva",
@@ -215,6 +215,7 @@ export default {
       showCupom: false,
       cupom: "",
       // servicos: [{cofre: 50}, {lavanderia: 100}, {cafe: 50}, {massagem: 150}, {sala: 350}, {passeio: 250}],
+
       servicos: {
         Cofre: 50,
         Lavanderia: 100,
@@ -241,14 +242,7 @@ export default {
       console.log(this);
       console.log(this.modalOpen);
     },
-    onToggle: (elem) => (elem = !elem),
-    getItem: (arr, id) => {
-      arr.filter((item, index, arrr) => {
-        if (item.id == id) {
-          // console.log(item);
-        }
-      });
-    },
+
     getAcomodacao(title, price) {
       this.acomodacao = title;
       this.valorAcomodacao = parseInt(price).toFixed(2);
@@ -296,6 +290,11 @@ export default {
         this.total = this.subtotal;
       }
     },
+    addToCart(quarto) {
+      quarto.services = Object.assign(this.carrServicos);
+      console.log(quarto);
+      this.$store.dispatch("addToCart", quarto);
+    },
   },
   computed: {
     subTotalReserva() {
@@ -316,8 +315,14 @@ export default {
     acomodacoes() {
       return this.$store.state.acomodacoes;
     },
+    acomodacoesOnCart() {
+      return this.$store.state.acomodacoesOnCart;
+    },
+    getQuarto() {
+      return this.$store.getters.getQuarto;
+    },
   },
-  components: { ModalBook, HeroBanner, LinkButton },
+  components: { /*ModalBook,*/ HeroBanner, LinkButton },
   created() {
     this.$store.dispatch("loadRooms");
   },

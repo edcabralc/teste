@@ -6,17 +6,16 @@
         <div
           class="content-descricao"
           v-for="dados in acomodacao"
-          :key="dados.id"
-        >
+          :key="dados.id">
           <div class="content-info">
             <div class="content-titulo">
-              <img src="/img/quarto.73a5f20d.svg" alt="">
+              <img src="/img/quarto.73a5f20d.svg" alt="" />
               <h1> {{ dados.titulo }}</h1>
             </div>
             <p>{{ dados.descricao }}</p>
           </div>
           <div class="content-imagem">
-              <img :src="`${dados.src}`" alt="">
+            <img :src="`${dados.src}`" alt="" />
           </div>
         </div>
         <button class="btn-feedback">Reservar</button>
@@ -32,7 +31,7 @@
 import HeroBanner from "@/components/commons/HeroBanner";
 import FormFeedback from "@/components/FormFeedback";
 import { Acomodacao } from "@/class/Acomodacao";
-import { acomodacoes } from "@/helpers/AcomodacaoData";
+import { acomodacoesData } from "@/helpers/AcomodacaoData";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
@@ -63,8 +62,8 @@ export default {
       this.objAcomodacao(this.idImg);
     },
     objAcomodacao(idimg) {
-      // console.log(acomodacoes.id == idimg);
-      const ob = acomodacoes.filter((acomdacao) => acomdacao.id == idimg);
+      // console.log(acomodacoesData.id == idimg);
+      const ob = acomodacoesData.filter((acomdacao) => acomdacao.id == idimg);
       // console.log(ob);
       this.acomodacao = ob;
     },
